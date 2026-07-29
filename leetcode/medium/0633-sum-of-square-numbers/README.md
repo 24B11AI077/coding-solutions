@@ -34,24 +34,18 @@ Output: false
 ## Solution
 
 **Language:** C++  
-**Runtime:** 3 ms  
-**Memory:** 7.8 MB  
-**Submitted:** 2026-07-29T08:47:25.124Z  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 7.8 MB (beats 23.36%)  
+**Submitted:** 2026-07-29T09:01:31.222Z  
 
 ```cpp
 class Solution {
 public:
     bool judgeSquareSum(int c) {
-        for(int i = 0;i <= (2^32-1); i++ ){
-            for(int j = 0;j <= (2^32-1); j++ ){
-                cout << ((i*i)+(j*j)) << '\n';
-                if(((i*i)+(j*j)) == c) {
-                    return true;
-                }
-                if((i*i)+(j*j) > c) break;
-            }
-        }
-        return false;
+        int i = 0, j = sqrt(c);
+        while( i <= j){
+            if(1LL*i*i + 1LL *j*j == c) return true;else if(1LL*i*i + 1LL*j*j > c) j--; else i++;
+        }return false;
     }
 };
 ```
