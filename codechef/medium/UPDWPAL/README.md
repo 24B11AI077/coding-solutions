@@ -70,7 +70,7 @@ No
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-07-29T15:33:47.533Z  
+**Submitted:** 2026-07-29T15:35:26.929Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -111,6 +111,9 @@ int main() {
                         found = false;
                         break;
                     }
+                }
+                else if(nums[left] == nums[right]){
+                    continue;
                 }
                 else {
                     found = false;
