@@ -58,7 +58,7 @@ It can be verified that this is the minimum number of operations needed.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-07-29T15:09:59.708Z  
+**Submitted:** 2026-07-29T15:09:23.904Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
