@@ -37,6 +37,9 @@ int main() {
                         break;
                     }
                 }
+                else if(nums[left] == nums[right]){
+                    continue;
+                }
                 else {
                     found = false;
                     break;
