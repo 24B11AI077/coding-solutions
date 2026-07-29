@@ -70,7 +70,7 @@ No
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-07-29T15:18:26.866Z  
+**Submitted:** 2026-07-29T15:30:06.162Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -78,7 +78,52 @@ using namespace std;
 
 int main() {
 	// your code goes here
-
+    int t; cin >> t;
+    while(t--){
+        int n; cin >> n;
+        vector<int> nums(n);
+        for(int i = 0; i < n; i++){
+            cin >> nums[i];
+        }
+        int i = 0,j = nums.size()-1;
+        bool palindrome = true;
+        while(i <= j){
+            if(nums[i] != nums[j]){
+                palindrome = false;
+                break;
+            }
+            i++;j--;
+        }
+        if(!palindrome){
+            int left = 0,right = nums.size()-1;
+            int x = 0;
+            bool found = true;
+            while(left < right){
+                if(abs(nums[left]-nums[right]) == 2 && x == 0){
+                    x = min(nums[left],nums[right])+1;
+                }
+                else if(x!=0 && abs(nums[left]-nums[right])==2){
+                    if(nums[left]<=x) nums[left] +=1;
+                    if(nums[left]>x) nums[left] -=1;
+                    if(nums[right]<=x) nums[left] +=1;
+                    if(nums[right]>x) nums[left] -=1;
+                    if(nums[left]!= nums[right]){
+                        found = false;
+                        break;
+                    }
+                }
+                else {
+                    found = false;
+                    break;
+                }
+                left++;right--;
+            }
+            if(found) cout << "YES\n";
+            else cout << "NO\n";
+            
+        }
+        else cout << "YES\n";
+    }
 }
 
 ```
