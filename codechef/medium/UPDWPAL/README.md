@@ -70,7 +70,7 @@ No
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-07-29T15:32:27.083Z  
+**Submitted:** 2026-07-29T15:33:47.533Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -105,8 +105,8 @@ int main() {
                 else if(x!=0 && abs(nums[left]-nums[right])==2){
                     if(nums[left]<=x) nums[left] +=1;
                     if(nums[left]>x) nums[left] -=1;
-                    if(nums[right]<=x) nums[left] +=1;
-                    if(nums[right]>x) nums[left] -=1;
+                    if(nums[right]<=x) nums[right] +=1;
+                    if(nums[right]>x) nums[right] -=1;
                     if(nums[left]!= nums[right]){
                         found = false;
                         break;
