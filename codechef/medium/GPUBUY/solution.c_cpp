@@ -1,0 +1,19 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+    int t; cin >> t;
+    while(t--){
+        int x,y,z; cin >> x >> y >> z;
+        int val = z-y;
+        if(val == 0) {
+            cout << -1 << '\n';
+            continue;
+        }
+        int bit = x/val;
+        
+        if(bit >= 0) cout << (x/val) << '\n';
+        else cout << -1 << '\n';;
+    }
+}
