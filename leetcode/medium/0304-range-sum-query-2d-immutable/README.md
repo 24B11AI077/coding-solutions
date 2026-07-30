@@ -49,29 +49,31 @@ numMatrix.sumRegion(1, 2, 2, 4); // return 12 (i.e sum of the blue rectangle)
 ## Solution
 
 **Language:** C++  
-**Runtime:** 300 ms  
-**Memory:** 22.7 MB  
-**Submitted:** 2026-07-30T05:06:43.449Z  
+**Runtime:** 56 ms (beats 11.09%)  
+**Memory:** 152.1 MB (beats 6.08%)  
+**Submitted:** 2026-07-30T06:40:44.041Z  
 
 ```cpp
 class NumMatrix {
 public:
    vector<vector<int>> grid;
+   vector<vector<int>> prefix;
     NumMatrix(vector<vector<int>>& matrix) {
         grid = matrix;
+        prefix.resize(grid.size(),vector<int> (grid[0].size()+1,0));
+        for(int i = 0; i < grid.size(); i++){
+            int sum = 0;
+            for(int j = 1;j <= grid[0].size(); j++){
+                sum+=grid[i][j-1];
+                prefix[i][j] = (sum);
+            }
+        }
     }
     
     int sumRegion(int row1, int col1, int row2, int col2) {
         int sum = 0;
-        sum = generator(row1,  col1,  row2,  col2);
-        return sum;
-    }
-    int generator(int row1, int col1, int row2, int col2){
-        int sum = 0;
         for(int i = row1; i <= row2 ; i++){
-            for(int j = col1; j <= col2; j++){
-                sum += grid[i][j];
-            }
+            sum += (prefix[i][col2+1]-prefix[i][col1]);
         }
         return sum;
     }
