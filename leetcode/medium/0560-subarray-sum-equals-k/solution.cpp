@@ -1,17 +1,29 @@
 class Solution {
 public:
-    int subarraySum(vector<int>& nums, int k) {
-      int n = nums.size();
-       int cnt=0;
-      for(int i=0;i<n;i++){
-        int sum=0;
-        for(int j=i;j<n;j++){
-            sum+=nums[j];
-            if(sum==k){
-                cnt++;
-            }
+    int subarraySum(vector<int>& arr, int k) {
+       vector<int> prefix(arr.size());
+        int sum = 0;
+        for(int i = 0; i < arr.size(); i++){
+            sum += arr[i];
+            prefix[i] =  sum;
         }
-      }
-      return cnt;
+        unordered_map<int,int> mp;
+        mp[k] = 0;
+        mp[0] = 1;
+        int zeroes = 0;
+        for(int i = 0; i < prefix.size(); i++ ){
+            if(mp.find(prefix[i]-k) != mp.end()){
+                int cpy = k;
+                cout << prefix[i]  << " ";
+                zeroes += mp[prefix[i]-k];
+                
+                 
+            }
+             if(mp.find(prefix[i]) != mp.end()){
+                mp[prefix[i]] +=1;
+            }
+            else mp[prefix[i]] = 1;
+        }
+        return zeroes;
     }
 };
