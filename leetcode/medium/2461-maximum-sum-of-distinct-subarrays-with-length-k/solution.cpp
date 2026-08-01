@@ -8,8 +8,9 @@ public:
         for(int i = 0; i < k ; i++) {
             mp[nums[i]]+=1;
             sum += nums[i];
-            if(mp[nums[i]] > 1) valid = false;
+            
         }
+        if(mp.size() != k) valid = false;
         int i = 0;
         long long  maxi =0;
         for(int j = k ; j < nums.size() ; j++ ){
@@ -18,12 +19,10 @@ public:
            sum -= nums[i];
            mp[nums[i]]-=1;
            mp[nums[j]] += 1;
-           for(auto val : mp){
-            if(val.second > 1 ) {
-                valid = false;break;
-            }
-            valid = true;
-           }
+           if(mp[nums[i]] == 0) mp.erase(nums[i]);
+            if(mp.size() == k) valid = true;
+            else valid = false;
+            
            i++;
         }
         if(valid) maxi = max(maxi,sum);
