@@ -4,17 +4,11 @@
 
 ## Problem
 
-You are given a  **binary**  string `s`.
+You are given a binary string `s`.
 
-A  **prefix**  of `s` is considered  **valid**  if its characters can be rearranged to form an  **alternating**  string.
+A prefix of `s` is considered  **valid**  if its characters can be rearranged to form an  **alternating**  string.
 
 Return the number of valid prefixes of `s`.
-
-A  **binary**  string is a string consisting only of `'0'` and `'1'`.
-
-A  **prefix**  of a string is a  **substring**  that starts from the beginning of the string and extends to any point within it.
-
-A  **substring**  is a contiguous  **non-empty**  sequence of characters within a string.
 
 A string is considered  **alternating**  if no two adjacent characters are equal.
 
@@ -56,9 +50,9 @@ All prefixes of `s = "101"` are already alternating strings. Thus, the answer is
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 9.4 MB (beats 66.67%)  
-**Submitted:** 2026-08-01T15:43:34.447Z  
+**Runtime:** 3 ms (beats 33.33%)  
+**Memory:** 9.4 MB (beats 50.00%)  
+**Submitted:** 2026-08-03T03:44:37.507Z  
 
 ```cpp
 class Solution {
