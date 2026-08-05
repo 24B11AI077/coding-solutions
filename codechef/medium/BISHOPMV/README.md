@@ -59,17 +59,30 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-05T15:11:23.187Z  
+**Submitted:** 2026-08-05T15:12:20.242Z  
 
 ```c_cpp
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
 int main() {
-	// your code goes here
+    int t;
+    cin >> t;
 
+    while (t--) {
+        int x1, y1, x2, y2;
+        cin >> x1 >> y1 >> x2 >> y2;
+
+        if ((x1 + y1 == x2 + y2) || (x1 - y1 == x2 - y2))
+            cout << 1 << "\n";
+        else if ((x1 + y1) % 2 != (x2 + y2) % 2)
+            cout << -1 << "\n";
+        else
+            cout << 2 << "\n";
+    }
+
+    return 0;
 }
-
 ```
 
 ---
