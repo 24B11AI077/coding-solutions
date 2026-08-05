@@ -58,40 +58,32 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-05T15:39:18.098Z  
+**Submitted:** 2026-08-05T15:38:14.034Z  
 
 ```c_cpp
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main() {
-    int t;
-    cin >> t;
-
-    while (t--) {
-        int n;
-        cin >> n;
-
-        vector<int> a(n + 1);
-        for (int i = 1; i <= n; i++)
-            cin >> a[i];
-
-        int ans = 0;
-        int sum = 0;
-
-        for (int i = 2; i <= n; i++) {
-            if (a[i] > 0)
-                sum += a[i];
-
-            ans = max(ans, 1 + sum - i);
+	// your code goes here
+        int t; cin >> t;
+        while(t--){
+            int n; cin >> n;
+            vector<int> nums(n);
+            for(int i = 0; i < n; i++) cin >> nums[i];
+            int i = 0,j = 1;
+            int balance = 0;
+            while( i < j && j < n && i < n){
+                if(nums[j] + (i) >= j){
+                    balance += (nums[j]+i-j);
+                    i = j;
+                }
+                j++;
+            }
+            cout << balance << '\n';
         }
-
-        cout << ans << "\n";
-    }
-
-    return 0;
 }
+
 ```
 
 ---
