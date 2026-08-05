@@ -11,7 +11,7 @@ int main() {
             int i = 0,j = 1;
             int balance = 0;
             while( i < j && j < n && i < n){
-                if(nums[j] + (i) > j){
+                if(nums[j] + (i) >= j){
                     balance += (nums[j]+i-j);
                     i = j;
                 }
