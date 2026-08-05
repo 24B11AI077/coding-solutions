@@ -58,7 +58,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-05T15:22:22.886Z  
+**Submitted:** 2026-08-05T15:26:25.884Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -74,7 +74,7 @@ int main() {
             int i = 0,j = 1;
             int balance = 0;
             while( i < j && j < n && i < n){
-                if(nums[j] + (i) > j){
+                if(nums[j] + (i) >= j){
                     balance += (nums[j]+i-j);
                     i = j;
                 }
