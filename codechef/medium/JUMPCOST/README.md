@@ -58,7 +58,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-05T15:17:44.878Z  
+**Submitted:** 2026-08-05T15:21:31.084Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -66,7 +66,22 @@ using namespace std;
 
 int main() {
 	// your code goes here
-
+        int t; cin >> t;
+        while(t--){
+            int n; cin >> n;
+            vector<int> nums(n);
+            for(int i = 0; i < n; i++) cin >> nums[i];
+            int i = 0,j = 1;
+            int balance = 0;
+            while( i < j && j < n && i < n){
+                if(nums[j] + (i) > j){
+                    balance += (nums[j]+i-j);
+                    i = j;
+                }
+                j++;
+            }
+            cout << balance << '\n';
+        }
 }
 
 ```
