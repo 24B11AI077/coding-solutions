@@ -3,5 +3,20 @@ using namespace std;
 
 int main() {
 	// your code goes here
-
+        int t; cin >> t;
+        while(t--){
+            int n; cin >> n;
+            vector<int> nums(n);
+            for(int i = 0; i < n; i++) cin >> nums[i];
+            int i = 0,j = 1;
+            int balance = 0;
+            while( i < j && j < n && i < n){
+                if(nums[j] + (i) > j){
+                    balance += (nums[j]+i-j);
+                    i = j;
+                }
+                j++;
+            }
+            cout << balance << '\n';
+        }
 }
