@@ -58,7 +58,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-05T15:46:53.007Z  
+**Submitted:** 2026-08-05T15:32:34.882Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -73,16 +73,14 @@ int main() {
             for(int i = 0; i < n; i++) cin >> nums[i];
             int i = 0,j = 1;
             int balance = 0;
-            int maxi = 0;
             while( i < j && j < n && i < n){
                 if(nums[j] + (i) >= j){
                     balance += (nums[j]+i-j);
                     i = j;
-                    maxi = max(maxi,balance);
                 }
                 j++;
             }
-            cout << maxi << '\n';
+            cout << balance << '\n';
         }
 }
 
