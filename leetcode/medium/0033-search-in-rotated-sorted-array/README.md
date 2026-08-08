@@ -52,8 +52,8 @@ Output: -1
 
 **Language:** C++  
 **Runtime:** 0 ms  
-**Memory:** 8.3 MB  
-**Submitted:** 2026-08-08T09:11:17.872Z  
+**Memory:** 8.2 MB  
+**Submitted:** 2026-08-08T09:11:25.643Z  
 
 ```cpp
 class Solution {
