@@ -78,14 +78,14 @@ The sum of all node weights is `4 + 6 + 6 + 4 = 20`.
 
 **Language:** C++  
 **Runtime:** 0 ms  
-**Memory:** 8.3 MB  
-**Submitted:** 2026-08-09T03:29:29.834Z  
+**Memory:** 8.1 MB  
+**Submitted:** 2026-08-09T03:29:33.916Z  
 
 ```cpp
 class Solution {
 public:
     long long weightedSum(vector<int>& parent, vector<int>& nums) {
-        if(nums.size() == 1) return 0;
+        
         int  n = parent.size();
         vector<int> depth(n);
         depth[0] = 1;
