@@ -1,7 +1,7 @@
 class Solution {
 public:
     long long weightedSum(vector<int>& parent, vector<int>& nums) {
-        if(nums.size() == 1) return 0;
+        
         int  n = parent.size();
         vector<int> depth(n);
         depth[0] = 1;
