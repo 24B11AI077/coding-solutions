@@ -78,8 +78,8 @@ The sum of all node weights is `4 + 6 + 6 + 4 = 20`.
 
 **Language:** C++  
 **Runtime:** 0 ms  
-**Memory:** 8.2 MB  
-**Submitted:** 2026-08-09T03:28:52.861Z  
+**Memory:** 8.3 MB  
+**Submitted:** 2026-08-09T03:29:29.834Z  
 
 ```cpp
 class Solution {
@@ -89,7 +89,7 @@ public:
         int  n = parent.size();
         vector<int> depth(n);
         depth[0] = 1;
-       int maxi = 0;
+       int maxi = 1;
         for(int i = 1; i < n ; i++){
            depth[i] = depth[parent[i]]+1;
             maxi = max(maxi,depth[i]);
