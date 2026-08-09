@@ -13,7 +13,7 @@ public:
         int h = maxi;
         long long sum = 0;
         for(int i = 0; i < nums.size(); i++){
-            sum += (nums[i] * (h-depth[i]+1));
+            sum += 1LL*(nums[i]) * (h-depth[i]+1);
         }
         return sum;
     }
