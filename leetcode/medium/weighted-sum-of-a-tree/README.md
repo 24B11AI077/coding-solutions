@@ -78,8 +78,8 @@ The sum of all node weights is `4 + 6 + 6 + 4 = 20`.
 
 **Language:** C++  
 **Runtime:** 0 ms  
-**Memory:** 8.1 MB  
-**Submitted:** 2026-08-09T03:29:33.916Z  
+**Memory:** 7.9 MB  
+**Submitted:** 2026-08-09T03:31:56.048Z  
 
 ```cpp
 class Solution {
@@ -97,7 +97,7 @@ public:
         int h = maxi;
         long long sum = 0;
         for(int i = 0; i < nums.size(); i++){
-            sum += (nums[i] * (h-depth[i]+1));
+            sum += 1LL*(nums[i]) * (h-depth[i]+1);
         }
         return sum;
     }
