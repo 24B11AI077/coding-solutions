@@ -17,7 +17,6 @@ public:
                 mp[nums[j]]++;j++;
             }
         }
-        cout << i << " " << j ;
         maxi = max(maxi , j - i);
         return maxi;
     }
