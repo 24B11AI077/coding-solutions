@@ -57,9 +57,9 @@ It can be shown that there are no good subarrays with length more than 4.
 ## Solution
 
 **Language:** C++  
-**Runtime:** 71 ms (beats 32.02%)  
-**Memory:** 149.4 MB (beats 56.74%)  
-**Submitted:** 2026-08-12T00:45:53.121Z  
+**Runtime:** 46 ms (beats 98.99%)  
+**Memory:** 149.3 MB (beats 84.27%)  
+**Submitted:** 2026-08-12T00:46:08.786Z  
 
 ```cpp
 class Solution {
@@ -81,7 +81,6 @@ public:
                 mp[nums[j]]++;j++;
             }
         }
-        cout << i << " " << j ;
         maxi = max(maxi , j - i);
         return maxi;
     }
