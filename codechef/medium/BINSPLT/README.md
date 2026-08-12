@@ -72,7 +72,7 @@ Keep any one copy; the final string is $01$ which is optimal.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-12T15:31:48.306Z  
+**Submitted:** 2026-08-12T15:32:18.284Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
