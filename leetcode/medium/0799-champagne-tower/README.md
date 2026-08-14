@@ -50,24 +50,28 @@ Output: 1.00000
 ## Solution
 
 **Language:** C++  
-**Runtime:** 2 ms  
-**Memory:** 8 MB  
-**Submitted:** 2026-08-14T04:47:59.581Z  
+**Runtime:** 0 ms  
+**Memory:** 7.9 MB  
+**Submitted:** 2026-08-14T05:08:33.184Z  
 
 ```cpp
 class Solution {
 public:
     double champagneTower(int poured, int row, int query_glass) {
         if(poured == 0) return 0;
+        if(poured == 1 && row == 0) return 1;
         if(poured == 1 && row > 0) return 0;
-        int total_below = (row+1)*(row+2)/2;
-        int total_above = (row+1)*(row)/2;
-        if(poured >= total_below) return 1;
+        int total_below = ((row+1)*(row+2))/2;
+        int total_above = ((row+1)*(row))/2;
+        if(poured > total_below) return 1;
         if(poured <= total_above) return 0;
+        int rem = poured - (total_above);
         if(query_glass > 0 && query_glass < row){
-            return (double)(1/row);
+            return ((double)rem/row);
         }
-        return (double)(1/row*2);
+        
+        double val = ((double)rem/(row*2));
+        return val;
     }
 };
 ```
