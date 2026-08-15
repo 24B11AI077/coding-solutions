@@ -12,7 +12,7 @@ public:
         for(int i = 0; i < n ; i++){
             if(i == 0){
                 cnt++;
-                curr = 1;
+                curr = 0;
             }
             else {
                 if(curr + 1 < time[i]){
