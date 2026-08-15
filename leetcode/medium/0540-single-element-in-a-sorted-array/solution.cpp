@@ -1,6 +1,7 @@
 class Solution {
 public:
     int singleNonDuplicate(vector<int>& nums) {
+        int n = nums.size();
         if(nums.size() == 1) return nums[0];
         unordered_map<int,int> mp;
         bool might = false;
@@ -10,6 +11,6 @@ public:
             if(mp[nums[i]] == 1) might = true;
             if(mp[nums[i]] == 2) might = false;
         }
-        return 0;
+        return nums[n-1];
     }
 };
