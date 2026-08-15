@@ -63,9 +63,9 @@ You can only eliminate 1 monster.
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.4 MB  
-**Submitted:** 2026-08-15T15:38:31.887Z  
+**Runtime:** 27 ms (beats 26.19%)  
+**Memory:** 89.1 MB (beats 31.10%)  
+**Submitted:** 2026-08-15T15:41:26.914Z  
 
 ```cpp
 class Solution {
@@ -82,7 +82,7 @@ public:
         for(int i = 0; i < n ; i++){
             if(i == 0){
                 cnt++;
-                curr = 1;
+                curr = 0;
             }
             else {
                 if(curr + 1 < time[i]){
