@@ -38,14 +38,15 @@ Output: 10
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.3 MB  
-**Submitted:** 2026-08-15T09:03:05.623Z  
+**Runtime:** 19 ms (beats 3.47%)  
+**Memory:** 31.1 MB (beats 7.09%)  
+**Submitted:** 2026-08-15T09:04:17.556Z  
 
 ```cpp
 class Solution {
 public:
     int singleNonDuplicate(vector<int>& nums) {
+        int n = nums.size();
         if(nums.size() == 1) return nums[0];
         unordered_map<int,int> mp;
         bool might = false;
@@ -55,7 +56,7 @@ public:
             if(mp[nums[i]] == 1) might = true;
             if(mp[nums[i]] == 2) might = false;
         }
-        return 0;
+        return nums[n-1];
     }
 };
 ```
