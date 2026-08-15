@@ -40,9 +40,9 @@ The longest subsequence is `[2, 3, 4]`. The bitwise XOR is computed as `2 XOR 3 
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.1 MB  
-**Submitted:** 2026-08-15T02:33:21.053Z  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 171.3 MB (beats 22.70%)  
+**Submitted:** 2026-08-15T02:35:40.849Z  
 
 ```cpp
 class Solution {
@@ -52,10 +52,13 @@ public:
         if(n == 1 && nums[0] == 0) return 0;
         if(n == 1) return 1;
         int val = 0;
+        int cnt = 0;
         for(int v: nums){
             int res = val^v;
            val = res;
+           if(v == 0) cnt++;
         }
+        if(cnt == n) return 0;
         if(val == 0) return n-1;
         return n;
     }
