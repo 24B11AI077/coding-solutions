@@ -54,7 +54,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-19T14:34:51.082Z  
+**Submitted:** 2026-08-19T14:37:51.085Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -62,7 +62,19 @@ using namespace std;
 
 int main() {
 	// your code goes here
-
+    int t; cin >> t;
+    while(t--){
+        int n ;cin >> n;
+        vector<int> nums(n);
+        int even = 0,odd = 0;
+        for(int i = 0; i < n ; i++) {
+            cin >> nums[i];
+            if(nums[i]%2 == 0) even++;
+            else odd++;
+        }
+        if(even == odd) cout << 2*odd << '\n';
+        else cout << 2*min(even,odd)+1 << '\n';
+    }
 }
 
 ```
