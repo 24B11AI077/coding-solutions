@@ -13,7 +13,7 @@ int main() {
             if(nums[i]%2 == 0) even++;
             else odd++;
         }
-        if(even == odd) cout << odd << '\n';
-        else cout << min(even,odd)+1 << '\n';
+        if(even == odd) cout << 2*odd << '\n';
+        else cout << 2*min(even,odd)+1 << '\n';
     }
 }
