@@ -58,7 +58,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-19T15:01:14.649Z  
+**Submitted:** 2026-08-19T15:06:26.648Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -75,7 +75,24 @@ int main() {
         int ans = 1;
         int maxi = 0;
         for(int i = 0; i < n; i++) cin >> nums[i];
-        
+        int l = 0;
+        if(nums[0] > k){
+            discount = false;
+            l = 1;
+        }
+        for(int i = l; i < n ; i++){
+            if(sum + nums[i] > k){
+                if(discount){
+                    if(maxi > nums[i]){
+                        discount = false;
+                        sum -= maxi;
+                        sum += nums[i];
+                    }
+                }
+            }
+            else sum += nums[i];
+            maxi = max(maxi,nums[i]);
+        }
         cout << ans << '\n';
     }
 }
