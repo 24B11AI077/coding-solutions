@@ -58,7 +58,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-19T15:06:26.648Z  
+**Submitted:** 2026-08-19T15:08:48.087Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -87,10 +87,18 @@ int main() {
                         discount = false;
                         sum -= maxi;
                         sum += nums[i];
+                        ans = i+1;
+                    }
+                    else {
+                        ans = i+1;break;
                     }
                 }
+                else break;
             }
-            else sum += nums[i];
+            else {
+                sum += nums[i];
+                ans = i+1;
+            }
             maxi = max(maxi,nums[i]);
         }
         cout << ans << '\n';
