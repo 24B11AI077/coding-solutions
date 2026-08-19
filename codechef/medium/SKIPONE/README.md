@@ -58,7 +58,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-19T14:41:55.887Z  
+**Submitted:** 2026-08-19T15:09:21.649Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -66,7 +66,43 @@ using namespace std;
 
 int main() {
 	// your code goes here
-
+    int t; cin >> t;
+    while(t--){
+        int n,k; cin >> n >> k;
+        vector<int> nums(n);
+        int sum = 0;
+        bool discount = true;
+        int ans = 1;
+        int maxi = 0;
+        for(int i = 0; i < n; i++) cin >> nums[i];
+        int l = 0;
+        if(nums[0] > k){
+            discount = false;
+            l = 1;
+        }
+        for(int i = l; i < n ; i++){
+            if(sum + nums[i] > k){
+                if(discount){
+                    if(maxi > nums[i]){
+                        discount = false;
+                        sum -= maxi;
+                        sum += nums[i];
+                        ans = i+1;
+                    }
+                    else {
+                        ans = i+1;break;
+                    }
+                }
+                else break;
+            }
+            else {
+                sum += nums[i];
+                ans = i+1;
+            }
+            maxi = max(maxi,nums[i]);
+        }
+        cout << ans << '\n';
+    }
 }
 
 ```
