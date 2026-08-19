@@ -54,7 +54,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-19T14:37:51.085Z  
+**Submitted:** 2026-08-19T14:36:54.083Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -72,8 +72,8 @@ int main() {
             if(nums[i]%2 == 0) even++;
             else odd++;
         }
-        if(even == odd) cout << 2*odd << '\n';
-        else cout << 2*min(even,odd)+1 << '\n';
+        if(even == odd) cout << odd << '\n';
+        else cout << min(even,odd)+1 << '\n';
     }
 }
 
