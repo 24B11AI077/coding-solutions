@@ -24,10 +24,18 @@ int main() {
                         discount = false;
                         sum -= maxi;
                         sum += nums[i];
+                        ans = i+1;
+                    }
+                    else {
+                        ans = i+1;break;
                     }
                 }
+                else break;
             }
-            else sum += nums[i];
+            else {
+                sum += nums[i];
+                ans = i+1;
+            }
             maxi = max(maxi,nums[i]);
         }
         cout << ans << '\n';
