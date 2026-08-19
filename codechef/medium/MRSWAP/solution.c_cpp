@@ -1,0 +1,20 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+    int t; cin >> t;
+    while(t--){
+        int n ; cin >> n;
+        vector<int> nums(2*n);
+        for(int i = 0; i < 2*n ; i++) cin >> nums[i];
+        int i = 0,j=2*n-1;
+        int sum = 0;
+        while(i <= j){
+            sum += max(nums[i],nums[j]);
+            i++;j--;
+        }
+        cout << sum << '\n';
+        
+    }
+}
