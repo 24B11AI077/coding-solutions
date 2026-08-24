@@ -67,7 +67,7 @@ Since `x` comes first alphabetically, the answer is `x`.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-24T15:59:00.473Z  
+**Submitted:** 2026-08-24T16:02:10.474Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -81,15 +81,17 @@ int main() {
         string s ; cin >> s;
         char ch = 'a';
         int maxi = 0;
+        unordered_map<char,int> mp;
         for(int i = 0; i < s.size(); i++){
-            if(s[i] >= 'a' && s[i] <= 'z'){
-                mp[s[i]]++;
-                if(maxi > mp[s[i]]){
-                    ch = s[i];
-                    maxi = mp[s[i]];
+            char c = tolower(s[i]);
+            if(c>= 'a' && c <= 'z'){
+                mp[c]++;
+                if(maxi > mp[c]){
+                    ch = c;
+                    maxi = mp[c];
                 }
-                else if(maxi == mp[s[i]]){
-                    if(s[i] < ch) ch = s[i];
+                else if(maxi == mp[c]){
+                    if(c< ch) ch = c;
                 }
             }
         }
