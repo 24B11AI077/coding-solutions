@@ -58,21 +58,13 @@ Since the robot can travel only $5$ units, it cannot reach the charging station.
 
 ## Solution
 
-**Language:** c_cpp  
+**Language:** Python  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-24T15:48:22.068Z  
+**Submitted:** 2026-08-24T15:45:20.335Z  
 
-```c_cpp
-#include <bits/stdc++.h>
-using namespace std;
-
-int main() {
-	// your code goes here
-    int a, b , c ; cin >> a >> b >> c;
-    if(abs(a-b) <= c) cout << "YES";
-    else cout << "NO";
-}
+```py
+# cook your dish here
 
 ```
 
