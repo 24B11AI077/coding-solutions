@@ -3,5 +3,17 @@ using namespace std;
 
 int main() {
 	// your code goes here
-
+    int t; cin >> t;
+    while(t--){
+        int n ; cin >> n;
+        vector<int> nums(n);
+        int ne = 0, po =0;
+        for(int i = 0; i < n ; i++){
+            cin >> nums[i];
+            if(nums[i] == -1) ne++;
+            else po++;
+        }
+        if((ne+po) % 2 != 0) cout << -1 << '\n';
+        else cout << min(ne,po) << '\n';
+    }
 }
