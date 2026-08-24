@@ -2,28 +2,30 @@
 using namespace std;
 
 int main() {
-	// your code goes here
-    
-    int t; t = 1;
-    while(t--){
-        string s ; cin >> s;
-        char ch = 'a';
-        int maxi = 0;
-        unordered_map<char,int> mp;
-        for(int i = 0; i < s.size(); i++){
-            char c = tolower(s[i]);
-            if(c>= 'a' && c <= 'z'){
-                mp[c]++;
-                if(maxi > mp[c]){
-                    ch = c;
-                    maxi = mp[c];
-                }
-                else if(maxi == mp[c]){
-                    if(c< ch) ch = c;
-                }
-            }
+    string s;
+    getline(cin, s);
+
+    vector<int> freq(26, 0);
+
+    for (char ch : s) {
+        ch = tolower(ch);
+
+        if (ch >= 'a' && ch <= 'z') {
+            freq[ch - 'a']++;
         }
-        if(maxi == 0) cout << -1 << '\n';
-        else cout << ch << '\n';
     }
+
+    int maxFreq = 0;
+    char answer = 'a';
+
+    for (int i = 0; i < 26; i++) {
+        if (freq[i] > maxFreq) {
+            maxFreq = freq[i];
+            answer = 'a' + i;
+        }
+    }
+
+    cout << answer << '\n';
+
+    return 0;
 }
