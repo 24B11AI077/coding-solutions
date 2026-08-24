@@ -74,7 +74,7 @@ Therefore, all those substrings are anagrams of `xyz`.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-24T16:09:30.429Z  
+**Submitted:** 2026-08-24T16:11:50.432Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -84,12 +84,8 @@ int main() {
 	// your code goes here
     string s,p; cin >> s >> p;
     int k = p.size();
-    unordered_map<int,int> mp;
-    for(int i = 0; i < k ; i++){
-        mp[s[i]]++;
-    }
-    for(int i = k; i < s.size(); i++){
-        
+    for(int i = 0; i < s.size() - k; i++){
+        string temp(s.begin()))
     }
 }
 
