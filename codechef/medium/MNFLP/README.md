@@ -59,7 +59,7 @@ For the third test case, its sum cannot be made `0`. Therefore, the answer is `-
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-24T15:51:13.732Z  
+**Submitted:** 2026-08-24T15:52:26.728Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -78,7 +78,7 @@ int main() {
             else po++;
         }
         if((ne+po) % 2 != 0) cout << -1 << '\n';
-        else cout << min(ne,po) << '\n';
+        else cout << abs(ne-po) << '\n';
     }
 }
 
