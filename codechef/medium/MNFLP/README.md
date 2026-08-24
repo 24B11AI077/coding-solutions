@@ -59,7 +59,7 @@ For the third test case, its sum cannot be made `0`. Therefore, the answer is `-
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-24T15:48:38.738Z  
+**Submitted:** 2026-08-24T15:48:54.722Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
