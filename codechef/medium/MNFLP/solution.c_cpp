@@ -14,9 +14,6 @@ int main() {
             else po++;
         }
         if((ne+po) % 2 != 0) cout << -1 << '\n';
-        else {
-            int val =(ne + po) / 2;
-            cout << abs(max(ne,po) - val) << '\n';
-        }
+        else cout << min(ne,po) << '\n';
     }
 }
