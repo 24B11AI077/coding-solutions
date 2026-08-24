@@ -74,7 +74,7 @@ Therefore, all those substrings are anagrams of `xyz`.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-24T16:11:50.432Z  
+**Submitted:** 2026-08-24T16:07:08.425Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -82,11 +82,7 @@ using namespace std;
 
 int main() {
 	// your code goes here
-    string s,p; cin >> s >> p;
-    int k = p.size();
-    for(int i = 0; i < s.size() - k; i++){
-        string temp(s.begin()))
-    }
+
 }
 
 ```
