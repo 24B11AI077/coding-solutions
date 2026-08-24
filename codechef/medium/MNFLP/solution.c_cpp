@@ -14,6 +14,6 @@ int main() {
             else po++;
         }
         if((ne+po) % 2 != 0) cout << -1 << '\n';
-        else cout << min(ne,po) << '\n';
+        else cout << abs(ne-po) << '\n';
     }
 }
