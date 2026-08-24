@@ -3,9 +3,5 @@ using namespace std;
 
 int main() {
 	// your code goes here
-    string s,p; cin >> s >> p;
-    int k = p.size();
-    for(int i = 0; i < s.size() - k; i++){
-        string temp(s.begin()))
-    }
+
 }
