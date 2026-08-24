@@ -67,7 +67,7 @@ Since `x` comes first alphabetically, the answer is `x`.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-24T15:55:03.492Z  
+**Submitted:** 2026-08-24T15:59:00.473Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -75,7 +75,25 @@ using namespace std;
 
 int main() {
 	// your code goes here
-
+    
+    int t; cin >> t;
+    while(t--){
+        string s ; cin >> s;
+        char ch = 'a';
+        int maxi = 0;
+        for(int i = 0; i < s.size(); i++){
+            if(s[i] >= 'a' && s[i] <= 'z'){
+                mp[s[i]]++;
+                if(maxi > mp[s[i]]){
+                    ch = s[i];
+                    maxi = mp[s[i]];
+                }
+                else if(maxi == mp[s[i]]){
+                    if(s[i] < ch) ch = s[i];
+                }
+            }
+        }
+    }
 }
 
 ```
