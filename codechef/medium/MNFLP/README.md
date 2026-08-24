@@ -59,7 +59,7 @@ For the third test case, its sum cannot be made `0`. Therefore, the answer is `-
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-24T15:49:04.724Z  
+**Submitted:** 2026-08-24T15:52:20.729Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -67,7 +67,19 @@ using namespace std;
 
 int main() {
 	// your code goes here
-
+    int t; cin >> t;
+    while(t--){
+        int n ; cin >> n;
+        vector<int> nums(n);
+        int ne = 0, po =0;
+        for(int i = 0; i < n ; i++){
+            cin >> nums[i];
+            if(nums[i] == -1) ne++;
+            else po++;
+        }
+        if((ne+po) % 2 != 0) cout << -1 << '\n';
+        else cout << abs(ne-po) << '\n';
+    }
 }
 
 ```
