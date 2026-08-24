@@ -67,7 +67,7 @@ Since `x` comes first alphabetically, the answer is `x`.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-24T16:02:10.474Z  
+**Submitted:** 2026-08-24T16:03:30.720Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -76,7 +76,7 @@ using namespace std;
 int main() {
 	// your code goes here
     
-    int t; cin >> t;
+    int t; t = 1;
     while(t--){
         string s ; cin >> s;
         char ch = 'a';
@@ -95,6 +95,8 @@ int main() {
                 }
             }
         }
+        if(maxi == 0) cout << -1 << '\n';
+        else cout << ch << '\n';
     }
 }
 
