@@ -74,7 +74,7 @@ Therefore, all those substrings are anagrams of `xyz`.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-24T16:15:19.109Z  
+**Submitted:** 2026-08-24T16:15:35.903Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
