@@ -52,6 +52,7 @@ Therefore, the required starting indices are `0 6`.
 
 ### Sample 2:
 Input
+Copy to clipboard
 Output
 
 ```
@@ -74,7 +75,7 @@ Therefore, all those substrings are anagrams of `xyz`.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-24T16:16:19.422Z  
+**Submitted:** 2026-08-24T16:15:16.258Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
