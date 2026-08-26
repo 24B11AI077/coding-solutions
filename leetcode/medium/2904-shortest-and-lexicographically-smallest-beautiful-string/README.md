@@ -71,11 +71,13 @@ Explanation: There are no beautiful substrings in this example.
 **Language:** Python  
 **Runtime:** 0 ms  
 **Memory:** 19.2 MB  
-**Submitted:** 2026-08-26T06:18:32.733Z  
+**Submitted:** 2026-08-26T06:22:47.474Z  
 
 ```py
 class Solution:
     def shortestBeautifulSubstring(self, s: str, k: int) -> str:
+        if k == 1 and s.count('1') >= k:
+            return "1"
         mp = {'1':0,'0':0}
         mini =  s
         length = len(s)
