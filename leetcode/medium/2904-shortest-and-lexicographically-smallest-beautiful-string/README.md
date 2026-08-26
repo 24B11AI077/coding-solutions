@@ -69,9 +69,9 @@ Explanation: There are no beautiful substrings in this example.
 ## Solution
 
 **Language:** Python  
-**Runtime:** 0 ms  
-**Memory:** 19.2 MB  
-**Submitted:** 2026-08-26T06:22:47.474Z  
+**Runtime:** 1 ms (beats 61.71%)  
+**Memory:** 19.2 MB (beats 72.07%)  
+**Submitted:** 2026-08-26T06:22:53.974Z  
 
 ```py
 class Solution:
