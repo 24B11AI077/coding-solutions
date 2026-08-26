@@ -65,33 +65,45 @@ For the given costs, this is optimal.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-26T15:03:45.905Z  
+**Submitted:** 2026-08-26T15:04:49.010Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
 using namespace std;
 
 int main() {
-	// your code goes here
-    int t; cin >> t;
-    while(t--){
-        int x,y,a,b,c; cin >> x >> y >> a >> b >> c;
-        int fc = 0;
-        if(x%2 == 0) {
-            fc = x/2;
-            if(y%2 == 0){
-                fc = fc + y/2;
-            }
-            else fc += (y/2)+1;
-        }
-        else {
-            fc = (x/2)+1;
-            if(y%2 == 0) fc += (y/2);
-            else fc += (y/2)+1;
-        }
-    }
-}
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
 
+    int T;
+    cin >> T;
+
+    while (T--) {
+        int A, B, P, Q, R;
+        cin >> A >> B >> P >> Q >> R;
+
+        int ans = INT_MAX;
+
+        for (int k = 0; k <= min(A, B); k++) {
+            int remainingA = A - k;
+            int remainingB = B - k;
+
+            int cost = k * R;
+
+            // Minimum cost for remaining horizontal moves
+            cost += ((remainingA + 1) / 2) * P;
+
+            // Minimum cost for remaining vertical moves
+            cost += ((remainingB + 1) / 2) * Q;
+
+            ans = min(ans, cost);
+        }
+
+        cout << ans << '\n';
+    }
+
+    return 0;
+}
 ```
 
 ---
