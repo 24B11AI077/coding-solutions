@@ -65,7 +65,7 @@ For the given costs, this is optimal.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-26T14:38:28.484Z  
+**Submitted:** 2026-08-26T15:03:45.905Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -73,7 +73,23 @@ using namespace std;
 
 int main() {
 	// your code goes here
-
+    int t; cin >> t;
+    while(t--){
+        int x,y,a,b,c; cin >> x >> y >> a >> b >> c;
+        int fc = 0;
+        if(x%2 == 0) {
+            fc = x/2;
+            if(y%2 == 0){
+                fc = fc + y/2;
+            }
+            else fc += (y/2)+1;
+        }
+        else {
+            fc = (x/2)+1;
+            if(y%2 == 0) fc += (y/2);
+            else fc += (y/2)+1;
+        }
+    }
 }
 
 ```
