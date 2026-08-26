@@ -1,5 +1,7 @@
 class Solution:
     def shortestBeautifulSubstring(self, s: str, k: int) -> str:
+        if k == 1 and s.count('1') >= k:
+            return "1"
         mp = {'1':0,'0':0}
         mini =  s
         length = len(s)
