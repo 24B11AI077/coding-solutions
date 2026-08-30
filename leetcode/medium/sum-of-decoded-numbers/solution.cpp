@@ -11,7 +11,11 @@ public:
              string y1 = temp.substr(x);
             int val1 = stoll(x1);
             int val2 = stoll(y1);
-            int res = (long long)pow(val1,val2)%mod;
+            long long res = 1;
+            while(val2 > 0){
+                res = (res%mod*val1%mod)%mod;
+                val2--;
+            }
             sum += res;
         }
         return sum;
