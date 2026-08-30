@@ -16,6 +16,7 @@ public:
                 res = (res%mod*val1%mod)%mod;
                 val2--;
             }
+            cout <<  res << " ";
             sum += res;
         }
         return sum;
