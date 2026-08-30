@@ -77,9 +77,9 @@ The `floor()` function returns the integer part of the division.
 ## Solution
 
 **Language:** C++  
-**Runtime:** 95 ms  
-**Memory:** 8.2 MB  
-**Submitted:** 2026-08-30T03:05:14.722Z  
+**Runtime:** 99 ms  
+**Memory:** 8.4 MB  
+**Submitted:** 2026-08-30T03:05:22.007Z  
 
 ```cpp
 class Solution {
