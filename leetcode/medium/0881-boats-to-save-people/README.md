@@ -47,9 +47,9 @@ Explanation: 4 boats (3), (3), (4), (5)
 ## Solution
 
 **Language:** C++  
-**Runtime:** 42 ms (beats 5.88%)  
-**Memory:** 50.9 MB (beats 5.76%)  
-**Submitted:** 2026-07-29T04:00:43.946Z  
+**Runtime:** 41 ms (beats 5.74%)  
+**Memory:** 51.1 MB (beats 5.16%)  
+**Submitted:** 2026-08-30T09:41:32.667Z  
 
 ```cpp
 class Solution {
