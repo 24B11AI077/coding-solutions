@@ -48,9 +48,9 @@ Explanation: "lee", "eet" and "ode" contain 2 vowels.
 ## Solution
 
 **Language:** C++  
-**Runtime:** 6 ms (beats 58.57%)  
-**Memory:** 13.2 MB (beats 28.86%)  
-**Submitted:** 2026-08-01T09:03:14.963Z  
+**Runtime:** 11 ms (beats 22.05%)  
+**Memory:** 13 MB (beats 89.82%)  
+**Submitted:** 2026-08-30T09:37:40.974Z  
 
 ```cpp
 class Solution {
