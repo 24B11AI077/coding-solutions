@@ -78,8 +78,8 @@ The `floor()` function returns the integer part of the division.
 
 **Language:** C++  
 **Runtime:** 0 ms  
-**Memory:** 8.4 MB  
-**Submitted:** 2026-08-30T02:55:57.803Z  
+**Memory:** 8.5 MB  
+**Submitted:** 2026-08-30T02:56:02.343Z  
 
 ```cpp
 class Solution {
