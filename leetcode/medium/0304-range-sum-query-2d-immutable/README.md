@@ -49,9 +49,9 @@ numMatrix.sumRegion(1, 2, 2, 4); // return 12 (i.e sum of the blue rectangle)
 ## Solution
 
 **Language:** C++  
-**Runtime:** 56 ms (beats 11.09%)  
-**Memory:** 152.1 MB (beats 6.08%)  
-**Submitted:** 2026-07-30T06:40:44.041Z  
+**Runtime:** 83 ms (beats 5.16%)  
+**Memory:** 152.2 MB (beats 5.49%)  
+**Submitted:** 2026-08-30T09:39:42.230Z  
 
 ```cpp
 class NumMatrix {
