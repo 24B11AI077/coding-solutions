@@ -35,8 +35,8 @@ Output: false
 
 **Language:** C++  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 7.8 MB (beats 23.36%)  
-**Submitted:** 2026-07-29T09:01:31.222Z  
+**Memory:** 7.7 MB (beats 57.12%)  
+**Submitted:** 2026-08-30T09:51:33.708Z  
 
 ```cpp
 class Solution {
