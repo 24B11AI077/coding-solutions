@@ -77,9 +77,9 @@ The `floor()` function returns the integer part of the division.
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 8.5 MB  
-**Submitted:** 2026-08-30T02:56:02.343Z  
+**Runtime:** 99 ms  
+**Memory:** 8.4 MB  
+**Submitted:** 2026-08-30T03:04:01.622Z  
 
 ```cpp
 class Solution {
@@ -95,7 +95,11 @@ public:
              string y1 = temp.substr(x);
             int val1 = stoll(x1);
             int val2 = stoll(y1);
-            int res = (long long)pow(val1,val2)%mod;
+            long long res = 1;
+            while(val2 > 0){
+                res = (res%mod*val1%mod)%mod;
+                val2--;
+            }
             sum += res;
         }
         return sum;
