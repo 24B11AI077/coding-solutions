@@ -23,5 +23,7 @@ int main() {
         cnt+=2;
         re = w-nums[i]*2;
     }
+    if(re > 0 ) cout << -1;
+    else 
     cout << cnt;
 }
