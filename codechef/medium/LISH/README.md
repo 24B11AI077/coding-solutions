@@ -77,7 +77,7 @@ The total weight is `28`, so the minimum number of units required is `3`.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-31T14:14:46.521Z  
+**Submitted:** 2026-08-31T14:17:45.045Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
