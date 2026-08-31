@@ -89,13 +89,21 @@ Since $2800 < 3000$, the output is `NO`.
 
 ## Solution
 
-**Language:** Python  
+**Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-31T14:02:41.988Z  
+**Submitted:** 2026-08-31T14:03:50.366Z  
 
-```py
-# cook your dish here
+```c_cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+    int x,a,y,b,d; cin >> x >> a >> y >> b >> d;
+    if(x*a + y*b >= d) cout << "YES\n";
+    else cout << "No\n";
+}
 
 ```
 
