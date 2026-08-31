@@ -16,6 +16,6 @@ int main() {
             break;
         }
     }
-    if(cnt == 1) cout << -1;
+    if(cnt == 0) cout << -1;
     else cout << res;
 }
