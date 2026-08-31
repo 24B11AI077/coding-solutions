@@ -94,7 +94,7 @@ $200+900=1100$
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-31T14:21:59.634Z  
+**Submitted:** 2026-08-31T14:22:15.639Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
