@@ -10,8 +10,18 @@ int main() {
         cin >> nums[i];
     }
     sort(nums.rbegin(),nums.rend());
-    int obt = 0;
+    int re = w;
+    int cnt = 0;
     for(int i = 0; i < n ; i++){
-        if(nums[i] >= )
+        if(nums[i] >= re){
+            cnt++;
+            break;
+        }
+        if(nums[i]*2 >= re){
+            cnt+=2;break;
+        }
+        cnt+=2;
+        re = w-nums[i]*2;
     }
+    cout << cnt;
 }
