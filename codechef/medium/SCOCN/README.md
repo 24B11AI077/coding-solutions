@@ -118,7 +118,7 @@ Therefore, the output is `1`.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-31T14:07:06.217Z  
+**Submitted:** 2026-08-31T14:08:22.398Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -139,7 +139,7 @@ int main() {
             break;
         }
     }
-    if(cnt == 1) cout << -1;
+    if(cnt == 0) cout << -1;
     else cout << res;
 }
 
