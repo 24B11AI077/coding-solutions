@@ -92,7 +92,7 @@ Since $2800 < 3000$, the output is `NO`.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-31T14:03:50.366Z  
+**Submitted:** 2026-08-31T14:04:01.806Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -102,7 +102,7 @@ int main() {
 	// your code goes here
     int x,a,y,b,d; cin >> x >> a >> y >> b >> d;
     if(x*a + y*b >= d) cout << "YES\n";
-    else cout << "No\n";
+    else cout << "NO\n";
 }
 
 ```
