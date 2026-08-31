@@ -118,7 +118,7 @@ Therefore, the output is `1`.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-31T14:04:38.605Z  
+**Submitted:** 2026-08-31T14:07:06.217Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -126,7 +126,21 @@ using namespace std;
 
 int main() {
 	// your code goes here
-
+    int n ;cin >> n ; 
+    vector<int> nums(n);
+    for(int i = 0; i < n ;i++) cin >> nums[i];
+    int x; cin >> x;
+    int res = -2;
+    int cnt = 0;
+    for(int i = 0; i < n; i++){
+        if(nums[i] == x) cnt++;
+        if(cnt == 2) {
+            res = i;
+            break;
+        }
+    }
+    if(cnt == 1) cout << -1;
+    else cout << res;
 }
 
 ```
