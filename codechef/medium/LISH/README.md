@@ -77,7 +77,7 @@ The total weight is `28`, so the minimum number of units required is `3`.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-31T14:18:38.087Z  
+**Submitted:** 2026-08-31T14:19:39.586Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -105,7 +105,7 @@ int main() {
             cnt+=2;break;
         }
         cnt+=2;
-        re = w-nums[i]*2;
+        re -=  nums[i]*2;
     }
     if(re > 0 ) cout << -1;
     else 
