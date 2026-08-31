@@ -92,7 +92,7 @@ Since $2800 < 3000$, the output is `NO`.
 **Language:** Python  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-08-31T14:02:29.004Z  
+**Submitted:** 2026-08-31T14:02:41.988Z  
 
 ```py
 # cook your dish here
