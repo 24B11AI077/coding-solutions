@@ -49,8 +49,8 @@ Since not every customer received the correct change, the answer is false.
 
 **Language:** C++  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 91.2 MB (beats 10.93%)  
-**Submitted:** 2026-09-01T05:23:46.894Z  
+**Memory:** 91.1 MB (beats 10.93%)  
+**Submitted:** 2026-09-01T05:23:55.768Z  
 
 ```cpp
 class Solution {
