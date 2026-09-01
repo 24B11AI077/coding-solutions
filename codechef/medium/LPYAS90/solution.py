@@ -3,7 +3,7 @@ choice = int(input())
 
 if choice == 1:
     print("Option 1 selected")
-elif choice == 1:
+elif choice == 2:
     print("Option 2 selected")
 elif choice == 3:
     print("Option 3 selected")
