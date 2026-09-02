@@ -56,7 +56,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-02T15:49:39.472Z  
+**Submitted:** 2026-09-02T15:59:04.601Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -64,7 +64,16 @@ using namespace std;
 
 int main() {
 	// your code goes here
-
+    int t; cin >> t;
+    while(t--){
+        int n ;cin >> n;
+        if(n%3 == 1 ) cout << n << '\n';
+        else if(n%3 == 0) cout << n +1 << '\n';
+        else {
+            long long val = (n/3) + 1;
+            cout << val*3 +1 << '\n';
+        }
+    }
 }
 
 ```
