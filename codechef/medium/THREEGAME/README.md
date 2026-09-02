@@ -56,7 +56,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-02T16:02:45.476Z  
+**Submitted:** 2026-09-02T16:04:17.743Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -66,7 +66,7 @@ int main() {
 	// your code goes here
     int t; cin >> t;
     while(t--){
-        int n ;cin >> n;
+        long long n ;cin >> n;
         if(n%3 == 1 ) cout << n << '\n';
         else if(n%3 == 0) cout << n +1 << '\n';
         else {
