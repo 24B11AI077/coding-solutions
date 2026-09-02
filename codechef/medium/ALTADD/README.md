@@ -66,7 +66,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-02T15:06:43.061Z  
+**Submitted:** 2026-09-02T15:16:42.076Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -77,7 +77,7 @@ int main() {
     int t; cin >> t ; 
     while(t--){
         int n; cin >> n ; 
-        vector<int> nums(n);
+        vector<long long> nums(n);
         for(int i =0; i < n ; i++){
             cin >> nums[i];
             
@@ -85,8 +85,8 @@ int main() {
         int po = 0,ne = 0;
         if(nums[0] < 0) ne =1;
         else po = 1;
-        int count = 0;
-        int maxi = 0;
+        long long count = 0;
+        long long maxi = 0;
         for(int i = 0; i < n ; i++){
             if(po && nums[i] > 0){
                 maxi = max(maxi,abs(nums[i]));
@@ -95,6 +95,14 @@ int main() {
             else if(ne && nums[i] < 0){
                 maxi = max(maxi,abs(nums[i]));
                 po = 1;ne = 0;
+            }
+            else if(nums[i] == 0){
+                count += maxi;
+                maxi = 0;
+                if(i+1 < n){
+                    if(nums[i] < 0) ne = 1;
+                    else po = 1;
+                }
             }
             else {
                 count += maxi ;
@@ -107,7 +115,6 @@ int main() {
         cout << count << '\n';
     }
 }
-
 ```
 
 ---
