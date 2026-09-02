@@ -66,7 +66,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-02T14:51:53.064Z  
+**Submitted:** 2026-09-02T15:05:59.068Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -74,7 +74,38 @@ using namespace std;
 
 int main() {
 	// your code goes here
-
+    int t; cin >> t ; 
+    while(t--){
+        int n; cin >> n ; 
+        vector<int> nums(n);
+        for(int i =0; i < n ; i++){
+            cin >> nums[i];
+            
+        }
+        int po = 0,ne = 0;
+        if(nums[i] < 0) ne =1;
+        else po = 1;
+        int count = 0;
+        int maxi = 0;
+        for(int i = 0; i < n ; i++){
+            if(po && nums[i] > 0){
+                maxi = max(maxi,abs(nums[i]));
+                po = 0;ne = 1;
+            }
+            else if(ne && nums[i] < 0){
+                maxi = max(maxi,abs(nums[i]));
+                po = 1;ne = 0;
+            }
+            else {
+                count += maxi ;
+                maxi = abs(nums[i]);
+                if(nums[i] < 0) po =1;
+                 else ne = 1;
+            }
+        }
+        count += maxi;
+        cout << count << '\n';
+    }
 }
 
 ```
