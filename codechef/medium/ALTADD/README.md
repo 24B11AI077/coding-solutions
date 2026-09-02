@@ -66,7 +66,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-02T15:20:19.227Z  
+**Submitted:** 2026-09-02T15:16:52.760Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -100,7 +100,7 @@ int main() {
                 count += maxi;
                 maxi = 0;
                 if(i+1 < n){
-                    if(nums[i+1] < 0) ne = 1;
+                    if(nums[i] < 0) ne = 1;
                     else po = 1;
                 }
             }
