@@ -51,7 +51,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-02T14:44:57.728Z  
+**Submitted:** 2026-09-02T14:43:34.227Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -62,7 +62,7 @@ int main() {
     int t ; cin >> t;
     while(t--){
         int n,k; cin >> n >> k;
-        int  j = 0;
+        int i = 0, j = n-1;
         vector<int> nums(n);
         int w = n-k;
         int sum = 0;
@@ -70,15 +70,7 @@ int main() {
             cin >> nums[i];
             if(i < w) sum += nums[i];
         }
-        int maxi = 0;
-        for(int i =w ; i < n ; i++){
-            maxi = max(maxi,sum);
-            sum -= nums[j];
-            sum += nums[i];
-            j++;
-        }
-        maxi = max(sum,maxi);
-        cout << maxi << '\n';
+        
     }
 }
 
