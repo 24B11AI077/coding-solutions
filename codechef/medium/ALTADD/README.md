@@ -66,50 +66,54 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-02T15:30:07.063Z  
+**Submitted:** 2026-09-02T15:16:10.193Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
 using namespace std;
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-    
-    int t; cin >> t;
-    while(t--) {
-        int n; cin >> n;
+	// your code goes here
+    int t; cin >> t ; 
+    while(t--){
+        int n; cin >> n ; 
         vector<long long> nums(n);
-        for(auto &x : nums) cin >> x;
-        
-        long long ans = 0;
-        long long curMax = 0;
-        int currentSign = 0; 
-        
-        for(int i = 0; i < n; ++i) {
-            if(nums[i] == 0) {
-                ans += curMax;
-                curMax = 0;
-                currentSign = 0;
-                continue;
-            }
+        for(int i =0; i < n ; i++){
+            cin >> nums[i];
             
-            int sign = (nums[i] > 0 ? 1 : -1);
-            if(currentSign == 0) {
-                currentSign = sign;
-                curMax = abs(nums[i]);
-            } else if(sign == currentSign) {
-                curMax = max(curMax, abs(nums[i]));
-            } else {
-                ans += curMax;
-                curMax = abs(nums[i]);
-                currentSign = sign;
+        }
+        int po = 0,ne = 0;
+        if(nums[0] < 0) ne =1;
+        else po = 1;
+        long long count = 0;
+        long long maxi = 0;
+        for(int i = 0; i < n ; i++){
+            if(po && nums[i] > 0){
+                maxi = max(maxi,abs(nums[i]));
+                po = 0;ne = 1;
+            }
+            else if(ne && nums[i] < 0){
+                maxi = max(maxi,abs(nums[i]));
+                po = 1;ne = 0;
+            }
+            else if(nums[i] == 0){
+                count += maxi;
+                maxi = 0;
+                if(i+1 < n){
+                    if(nums[i] < 0) ne = 1;
+                    else po = 1;
+                }
+            }
+            else {
+                count += maxi ;
+                maxi = abs(nums[i]);
+                if(nums[i] < 0) po =1;
+                 else ne = 1;
             }
         }
-        ans += curMax;
-        cout << ans << '\n';
+        count += maxi;
+        cout << count << '\n';
     }
-    return 0;
 }
 ```
 
