@@ -51,7 +51,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-02T14:39:57.810Z  
+**Submitted:** 2026-09-02T14:40:28.808Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -65,18 +65,7 @@ int main() {
         int i = 0, j = n-1;
         vector<int> nums(n);
         for(int i = 0; i < n ; i++) cin >> nums[i];
-        while(i <= j && k > 0){
-            if(nums[i] > nums[j]){
-                j--;
-            }
-            else {
-                i++;
-            }
-            k--;
-        }
-        int sum = 0;
-        for(int l = i; l <= j ; l++) sum += nums[l];
-        cout << sum << '\n';
+        
     }
 }
 
