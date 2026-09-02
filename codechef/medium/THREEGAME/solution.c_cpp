@@ -5,7 +5,7 @@ int main() {
 	// your code goes here
     int t; cin >> t;
     while(t--){
-        int n ;cin >> n;
+        long long n ;cin >> n;
         if(n%3 == 1 ) cout << n << '\n';
         else if(n%3 == 0) cout << n +1 << '\n';
         else {
