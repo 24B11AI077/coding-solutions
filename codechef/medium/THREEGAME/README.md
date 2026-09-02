@@ -56,7 +56,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-02T16:01:47.009Z  
+**Submitted:** 2026-09-02T16:08:35.311Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -66,9 +66,12 @@ int main() {
 	// your code goes here
     int t; cin >> t;
     while(t--){
-        int n ;cin >> n;
+        long long n ;cin >> n;
         if(n%3 == 1 ) cout << n << '\n';
-        else if(n%3 == 0) cout << n +1 << '\n';
+        else if(n%3 == 0) {
+            long long res = n  +1;
+            cout << res <<  '\n';
+        }
         else {
             long long val = (n/3) + 1;
             long long res = (long long)(val*3) + 1;
