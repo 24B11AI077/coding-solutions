@@ -56,7 +56,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-02T15:59:17.457Z  
+**Submitted:** 2026-09-02T16:02:45.476Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -71,7 +71,8 @@ int main() {
         else if(n%3 == 0) cout << n +1 << '\n';
         else {
             long long val = (n/3) + 1;
-            cout << val*3 +1 << '\n';
+            long long res = (long long)(val*3) + 1;
+            cout << res << '\n';
         }
     }
 }
