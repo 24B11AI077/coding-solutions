@@ -66,39 +66,48 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-02T15:31:21.839Z  
+**Submitted:** 2026-09-02T15:29:56.565Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
 using namespace std;
 
 int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
     
-    int t; 
-    cin >> t;
+    int t; cin >> t;
     while(t--) {
-        int n;
-        cin >> n;
-        vector<long long> A(n);
-        for(int i = 0; i < n; i++) {
-            cin >> A[i];
-        }
+        int n; cin >> n;
+        vector<long long> nums(n);
+        for(auto &x : nums) cin >> x;
         
         long long ans = 0;
-        long long prev = 0;  // B[0] = 0
+        long long curMax = 0;
+        int currentSign = 0; 
         
-        for(int i = 0; i < n; i++) {
-            // B[i] = A[i] * (-1)^i  (0-indexed)
-            long long B_i = (i % 2 == 0) ? A[i] : -A[i];
-            ans += llabs(B_i - prev);
-            prev = B_i;
+        for(int i = 0; i < n; ++i) {
+            if(nums[i] == 0) {
+                ans += curMax;
+                curMax = 0;
+                currentSign = 0;
+                continue;
+            }
+            
+            int sign = (nums[i] > 0 ? 1 : -1);
+            if(currentSign == 0) {
+                currentSign = sign;
+                curMax = abs(nums[i]);
+            } else if(sign == currentSign) {
+                curMax = max(curMax, abs(nums[i]));
+            } else {
+                ans += curMax;
+                curMax = abs(nums[i]);
+                currentSign = sign;
+            }
         }
-        // final boundary to 0
-        ans += llabs(0 - prev);
-        
-        cout << ans / 2 << '\n';
+        ans += curMax;
+        cout << ans << '\n';
     }
     return 0;
 }
