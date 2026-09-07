@@ -1,9 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-fibonacci(){
-    return fibonacci()+
-}
+
 int main() {
 	// your code goes here
     int n,q;cin >> n >> q;
