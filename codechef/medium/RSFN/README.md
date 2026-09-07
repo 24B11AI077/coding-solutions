@@ -69,21 +69,33 @@ $1+1+2+3+5=12$
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-07T16:08:02.227Z  
+**Submitted:** 2026-09-07T16:12:58.239Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
 using namespace std;
 
+fibonacci(){
+    return fibonacci()+
+}
 int main() {
 	// your code goes here
     int n,q;cin >> n >> q;
     vector<int> nums(n);
     vector<int> dp(n+1);
+    int maxi = 0;
     for(int i = 0; i  < n ; i++){
         cin >> nums[i];
+        maxi = max(maxi,nums[i]);
     }
-    fibonacci(0 )
+    int a = 1  , b = 1;
+    dp[1] = a;dp[2] = b;
+    for(int i = 3; i <= maxi ; i++){
+        dp[i] = dp[i]+dp[i-2];
+    }
+    for(int i = 0; i < n; i++){
+        
+    }
 }
 
 ```
