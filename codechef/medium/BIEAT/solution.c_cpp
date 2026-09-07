@@ -10,7 +10,8 @@ int main() {
     }
     int m ; cin >> m;
     for(int i = 0; i < n ; i++){
-        while(m-- && nums[i] > 0){
+        int counter = m;
+        while(counter-- && nums[i] > 0){
             nums[i] >>=1;
         }
     }
