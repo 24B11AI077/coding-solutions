@@ -69,15 +69,13 @@ $1+1+2+3+5=12$
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-07T16:17:01.228Z  
+**Submitted:** 2026-09-07T16:17:30.221Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
 using namespace std;
 
-fibonacci(){
-    return fibonacci()+
-}
+
 int main() {
 	// your code goes here
     int n,q;cin >> n >> q;
