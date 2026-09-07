@@ -69,7 +69,7 @@ $1+1+2+3+5=12$
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-07T16:17:30.221Z  
+**Submitted:** 2026-09-07T16:18:47.231Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -89,11 +89,13 @@ int main() {
     int a = 1  , b = 1;
     dp[1] = a;dp[2] = b;
     for(int i = 3; i <= maxi ; i++){
-        dp[i] = dp[i]+dp[i-2];
+        dp[i] = dp[i-1]+dp[i-2];
     }
     for(int i = 0; i < n; i++){
         nums[i] = dp[nums[i]];
+        
     }
+   
     vector<long long> prefix(n);
     long long sum = 0;
     for(int i = 0; i < n ; i++){
