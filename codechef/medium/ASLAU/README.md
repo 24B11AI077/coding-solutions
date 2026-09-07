@@ -71,7 +71,7 @@ Since $550 < 600$, the answer is `NO`
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-07T14:33:41.218Z  
+**Submitted:** 2026-09-07T14:33:57.645Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -79,7 +79,7 @@ using namespace std;
 
 int main() {
 	// your code goes here
-    int x,y,z; cin >> x >> x >> y >> z;
+    int x,y,z; cin >> x  >> y >> z;
     if(x+y >= z) cout << "YES";
     else cout << "NO";
 }
