@@ -84,7 +84,7 @@ Therefore, the minimum possible difference is `11`.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-07T15:00:13.016Z  
+**Submitted:** 2026-09-07T15:02:12.264Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
