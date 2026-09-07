@@ -83,7 +83,7 @@ Therefore, the required sum is `0`.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-07T14:34:25.861Z  
+**Submitted:** 2026-09-07T14:35:54.545Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -91,7 +91,15 @@ using namespace std;
 
 int main() {
 	// your code goes here
-
+    long long sum = 0;
+    int n,k; cin >> n >> k ;
+    for(int i = 0; i < n ; i++){
+        int x; cin >> x;
+        if(i%2 == 0 && x > 2*k){
+            sum += x;
+        }
+    }
+    cout << sum ;
 }
 
 ```
