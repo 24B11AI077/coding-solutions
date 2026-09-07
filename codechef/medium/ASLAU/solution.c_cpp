@@ -4,5 +4,6 @@ using namespace std;
 int main() {
 	// your code goes here
     int x,y,z; cin >> x >> x >> y >> z;
-    cout << (((x+y) >= z) ? "YES" : "NO");
+    if(x+y >= z) cout << "YES";
+    else cout << "NO";
 }
