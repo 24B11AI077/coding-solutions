@@ -84,7 +84,7 @@ Therefore, the minimum possible difference is `11`.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-07T14:55:03.013Z  
+**Submitted:** 2026-09-07T14:44:45.406Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -92,25 +92,8 @@ using namespace std;
 
 int main() {
 	// your code goes here
-    int n,k; cin >> n >> k;
-    vector<int> nums(n);
-    int maxi = INT_MIN,mini = INT_MAX;
-    for(int i = 0;  i  < n ; i++){
-        cin >> nums[i];
-        if(nums[i]-k < 0){
-            nums[i] += k;
-            mini = min(mini,nums[i]);
-            maxi = max(maxi,nums[i]);
-        }
-        else {
-            nums[i]-=k;
-              mini = min(mini,nums[i]);
-            maxi = max(maxi,nums[i]);
-        }
-    }
-    cout << maxi - mini ;
+
 }
-// 1 1 0 0
 
 ```
 
