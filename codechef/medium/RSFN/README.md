@@ -69,7 +69,7 @@ $1+1+2+3+5=12$
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-07T14:42:45.643Z  
+**Submitted:** 2026-09-07T14:41:26.646Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
