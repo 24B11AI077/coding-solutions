@@ -20,6 +20,15 @@ int main() {
         dp[i] = dp[i]+dp[i-2];
     }
     for(int i = 0; i < n; i++){
-        
+        nums[i] = dp[nums[i]];
+    }
+    vector<int> prefix(n);
+    int sum = 0;
+    for(int i = 0; i < n ; i++){
+        sum += nums[i];
+        prefix[i] = sum;
+    }
+    while(q--){
+        int x , y ; cin >> x >> y;
     }
 }
