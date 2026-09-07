@@ -1,9 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-fibonacci(){
-    return fibonacci()+
-}
+
 int main() {
 	// your code goes here
     int n,q;cin >> n >> q;
@@ -28,7 +26,9 @@ int main() {
         sum += nums[i];
         prefix[i] = sum;
     }
+    long long mod = 1e9 + 7; 
     while(q--){
         int x , y ; cin >> x >> y;
+        cout << prefix[y-1]%mod + prefix[x-1] << '\n';
     }
 }
