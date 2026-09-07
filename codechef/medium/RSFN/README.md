@@ -69,15 +69,13 @@ $1+1+2+3+5=12$
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-07T16:15:46.244Z  
+**Submitted:** 2026-09-07T16:17:35.230Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
 using namespace std;
 
-fibonacci(){
-    return fibonacci()+
-}
+
 int main() {
 	// your code goes here
     int n,q;cin >> n >> q;
@@ -102,8 +100,10 @@ int main() {
         sum += nums[i];
         prefix[i] = sum;
     }
+    long long mod = 1e9 + 7; 
     while(q--){
         int x , y ; cin >> x >> y;
+        cout << prefix[y-1]%mod + prefix[x-1] << '\n';
     }
 }
 
