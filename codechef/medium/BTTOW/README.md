@@ -84,7 +84,7 @@ Therefore, the minimum possible difference is `11`.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-07T15:02:12.264Z  
+**Submitted:** 2026-09-07T15:04:00.026Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -109,7 +109,8 @@ int main() {
     cout << val2-val1 ;
 }
 // 1 1 0 0
-
+// 1 3 5 ,, 3
+4  2 
 ```
 
 ---
