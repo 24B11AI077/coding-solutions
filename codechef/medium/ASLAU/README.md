@@ -71,7 +71,7 @@ Since $550 < 600$, the answer is `NO`
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-07T14:30:58.235Z  
+**Submitted:** 2026-09-07T14:31:08.223Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
