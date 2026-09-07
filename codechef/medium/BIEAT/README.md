@@ -73,7 +73,7 @@ Each number has at most $4$ significant bits, so removing $4$ least significant 
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-07T14:38:23.985Z  
+**Submitted:** 2026-09-07T14:37:11.976Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -81,13 +81,7 @@ using namespace std;
 
 int main() {
 	// your code goes here
-    int n ; cin >> n;
-    vector<int> nums(n);
-    for(int i = 0; i < n ; i++){
-        cin >> nums[i];
-    }
-    int m ; cin >> m;
-    
+
 }
 
 ```
