@@ -69,7 +69,7 @@ $1+1+2+3+5=12$
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-07T16:10:04.235Z  
+**Submitted:** 2026-09-07T16:09:34.224Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -86,7 +86,7 @@ int main() {
     for(int i = 0; i  < n ; i++){
         cin >> nums[i];
     }
-    for(int i = 1; i < )
+    fibonacci(0 )
 }
 
 ```
