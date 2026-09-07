@@ -69,7 +69,7 @@ $1+1+2+3+5=12$
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-07T16:05:53.231Z  
+**Submitted:** 2026-09-07T16:06:51.225Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -77,7 +77,12 @@ using namespace std;
 
 int main() {
 	// your code goes here
-    int n,
+    int n,q;cin >> n >> q;
+    vector<int> nums(n);
+    vector<int> dp(n)
+    for(int i = 0; i  < n ; i++){
+        cin >> nums[i];
+    }
 }
 
 ```
