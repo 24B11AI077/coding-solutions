@@ -69,46 +69,63 @@ $1+1+2+3+5=12$
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-07T16:22:40.243Z  
+**Submitted:** 2026-09-07T16:25:44.020Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
 using namespace std;
 
-
 int main() {
-	// your code goes here
-    int n,q;cin >> n >> q;
+    int n, q;
+    cin >> n >> q;
+
+    const long long mod = 1e9 + 7;
+
     vector<int> nums(n);
-    vector<int> dp(n+1);
+
     int maxi = 0;
-    for(int i = 0; i  < n ; i++){
+
+    for (int i = 0; i < n; i++) {
         cin >> nums[i];
-        maxi = max(maxi,nums[i]);
+        maxi = max(maxi, nums[i]);
     }
-    int a = 1  , b = 1;
-    dp[1] = a;dp[2] = b;
-    for(int i = 3; i <= maxi ; i++){
-        dp[i] = dp[i-1]+dp[i-2];
+
+    vector<long long> dp(maxi + 1);
+
+    if (maxi >= 1)
+        dp[1] = 1;
+
+    if (maxi >= 2)
+        dp[2] = 1;
+
+    for (int i = 3; i <= maxi; i++) {
+        dp[i] = (dp[i - 1] + dp[i - 2]) % mod;
     }
-    for(int i = 0; i < n; i++){
+
+    for (int i = 0; i < n; i++) {
         nums[i] = dp[nums[i]];
-        cout << nums[i] << " ";
     }
-   cout << '\n';
+
     vector<long long> prefix(n);
-    long long sum = 0;
-    for(int i = 0; i < n ; i++){
-        sum += nums[i];
-        prefix[i] = sum;
+
+    prefix[0] = nums[0];
+
+    for (int i = 1; i < n; i++) {
+        prefix[i] = (prefix[i - 1] + nums[i]) % mod;
     }
-    long long mod = 1e9 + 7; 
-    while(q--){
-        int x , y ; cin >> x >> y;
-        cout << prefix[y-1]%mod - prefix[x-2]%mod << '\n';
+
+    while (q--) {
+        int x, y;
+        cin >> x >> y;
+
+        if (x == 1) {
+            cout << prefix[y - 1] << '\n';
+        }
+        else {
+            cout << (prefix[y - 1] - prefix[x - 2] + mod) % mod << '\n';
+        }
     }
 }
-
 ```
 
 ---
