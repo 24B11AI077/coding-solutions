@@ -69,7 +69,7 @@ $1+1+2+3+5=12$
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-07T16:20:02.221Z  
+**Submitted:** 2026-09-07T16:19:24.239Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -105,7 +105,7 @@ int main() {
     long long mod = 1e9 + 7; 
     while(q--){
         int x , y ; cin >> x >> y;
-        cout << prefix[y-1]%mod + prefix[x-2] << '\n';
+        cout << prefix[y-1]%mod + prefix[x-1] << '\n';
     }
 }
 
