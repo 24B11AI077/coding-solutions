@@ -69,7 +69,7 @@ $1+1+2+3+5=12$
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-07T16:20:58.219Z  
+**Submitted:** 2026-09-07T16:24:01.492Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -80,12 +80,13 @@ int main() {
 	// your code goes here
     int n,q;cin >> n >> q;
     vector<int> nums(n);
-    vector<int> dp(n+1);
+    
     int maxi = 0;
     for(int i = 0; i  < n ; i++){
         cin >> nums[i];
         maxi = max(maxi,nums[i]);
     }
+    vector<int> dp(maxi+1);
     int a = 1  , b = 1;
     dp[1] = a;dp[2] = b;
     for(int i = 3; i <= maxi ; i++){
@@ -93,9 +94,9 @@ int main() {
     }
     for(int i = 0; i < n; i++){
         nums[i] = dp[nums[i]];
-        cout << nums[i] << " ";
+       
     }
-   cout << '\n';
+  
     vector<long long> prefix(n);
     long long sum = 0;
     for(int i = 0; i < n ; i++){
@@ -105,7 +106,10 @@ int main() {
     long long mod = 1e9 + 7; 
     while(q--){
         int x , y ; cin >> x >> y;
-        cout << prefix[y-1]%mod + prefix[x-2]%mod << '\n';
+        if(x-2 < 0 ){
+            cout << prefix[y-1]%mod;
+        }
+       else cout << prefix[y-1]%mod - prefix[x-2]%mod << '\n';
     }
 }
 
