@@ -31,6 +31,6 @@ int main() {
     long long mod = 1e9 + 7; 
     while(q--){
         int x , y ; cin >> x >> y;
-        cout << prefix[y-1]%mod + prefix[x-2] << '\n';
+        cout << prefix[y-1]%mod + prefix[x-2]%mod << '\n';
     }
 }
