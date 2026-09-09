@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+    
+    while (t--) {
+        int x, y;
+        cin >> x >> y;
+        
+        for (int days = 1; ; days++) {
+            bool found = false;
+            
+            for (int gpus = 1; gpus <= days; gpus++) {
+                long long sum_sq = 0;
+                for (int i = 1; i <= gpus; i++) {
+                    sum_sq += 1LL * i * i;
+                }
+                
+                long long earned = y * (sum_sq + 1LL * (days - gpus) * gpus * gpus);
+                long long spent = 1LL * x * gpus;
+                
+                if (earned - spent > 0) {
+                    cout << days << "\n";
+                    found = true;
+                    break;
+                }
+            }
+            
+            if (found) break;
+        }
+    }
+    
+    return 0;
+}
