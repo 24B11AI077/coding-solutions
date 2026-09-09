@@ -94,7 +94,7 @@ We print the endpoints of the subarrays, which is $[3, 3]$ for $[1]$ and $[1, 3]
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-09T15:49:36.442Z  
+**Submitted:** 2026-09-09T15:51:08.618Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
