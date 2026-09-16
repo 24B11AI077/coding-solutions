@@ -25,6 +25,7 @@ int main() {
             long long val = 1LL*cb*prefix[i] + 1LL*cr*(prefix[j]-prefix[i]);
             maxi = max(maxi,val);
             i--;j--;
+            cr--;cb++;
         }
         cout << maxi << '\n';
     }
