@@ -56,7 +56,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-16T15:02:34.997Z  
+**Submitted:** 2026-09-16T15:04:07.116Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -86,6 +86,7 @@ int main() {
             long long val = 1LL*cb*prefix[i] + 1LL*cr*(prefix[j]-prefix[i]);
             maxi = max(maxi,val);
             i--;j--;
+            cr--;cb++;
         }
         cout << maxi << '\n';
     }
