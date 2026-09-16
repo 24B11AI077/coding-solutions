@@ -56,7 +56,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-16T15:01:46.035Z  
+**Submitted:** 2026-09-16T15:02:34.997Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -76,7 +76,7 @@ int main() {
         }
         sort(nums.begin(),nums.end());
         for(int i = 0 ; i <n ; i++){
-            sum += val;
+            sum += nums[i];
             prefix[i] = sum;
         }
         long long  maxi = LLONG_MIN;
