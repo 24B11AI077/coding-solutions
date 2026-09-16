@@ -46,9 +46,9 @@ Explanation: Remove all the digits from the number and it is left with nothing w
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 7.8 MB  
-**Submitted:** 2026-09-16T04:57:35.774Z  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 11.6 MB (beats 47.11%)  
+**Submitted:** 2026-09-16T05:06:40.324Z  
 
 ```cpp
 class Solution {
@@ -56,7 +56,7 @@ public:
     string removeKdigits(string num, int k) {
         if(num.size() == k) return "0";
         stack<char> st;
-        for(int val : num){
+        for(char  val : num){
             while(!st.empty() && st.top() > val && k > 0 ){
                 st.pop();
                 k--;
@@ -68,11 +68,14 @@ public:
             k--;
         }
         string res = "";
+        int zeros = 0;
         while(!st.empty()){
-            res = st.top()+ res;
+            res += st.top();
+            if(st.top() == '0') zeros++;
             st.pop();
         }
-        if(res.size() == 1) return res;
+        reverse(res.begin(),res.end());
+        if(zeros == res.size()) return "0";
         string fin = "";
         bool found = false;
         for(int i = 0; i < res.size(); i++){
