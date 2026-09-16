@@ -56,7 +56,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-16T15:04:49.385Z  
+**Submitted:** 2026-09-16T15:05:56.371Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -68,7 +68,7 @@ int main() {
     while(t--){
         int n ; cin >> n;
         vector<int> nums(n);
-        vector<int> prefix(n);
+        vector<long long> prefix(n);
         long long sum = 0;
         for(int i = 0; i < n ; i++){
             cin >> nums[i];
