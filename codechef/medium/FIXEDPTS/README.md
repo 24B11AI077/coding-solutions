@@ -55,7 +55,7 @@ Yes
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-16T14:37:48.492Z  
+**Submitted:** 2026-09-16T14:40:16.243Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -63,8 +63,16 @@ using namespace std;
 
 int main() {
 	// your code goes here
-
+    int t; cin >> t;
+    while(t--){
+        int n , k; cin >> n >> k;
+        if(k == n-1){
+            cout << "NO\n";
+        }
+        else cout << "YES\n";
+    }
 }
+//
 
 ```
 
