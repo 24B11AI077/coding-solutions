@@ -56,7 +56,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-16T14:44:31.995Z  
+**Submitted:** 2026-09-16T15:01:46.035Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -64,7 +64,31 @@ using namespace std;
 
 int main() {
 	// your code goes here
-
+    int t; cin >> t;
+    while(t--){
+        int n ; cin >> n;
+        vector<int> nums(n);
+        vector<int> prefix(n);
+        long long sum = 0;
+        for(int i = 0; i < n ; i++){
+            cin >> nums[i];
+            
+        }
+        sort(nums.begin(),nums.end());
+        for(int i = 0 ; i <n ; i++){
+            sum += val;
+            prefix[i] = sum;
+        }
+        long long  maxi = LLONG_MIN;
+        int cr = n-1, cb = 1;
+        int i = n-2 , j =n-1;
+        while(i >= 0 && j >= 0){
+            long long val = 1LL*cb*prefix[i] + 1LL*cr*(prefix[j]-prefix[i]);
+            maxi = max(maxi,val);
+            i--;j--;
+        }
+        cout << maxi << '\n';
+    }
 }
 
 ```
