@@ -56,7 +56,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-16T15:46:33.144Z  
+**Submitted:** 2026-09-16T15:48:14.036Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -83,6 +83,7 @@ int main() {
                idx++;
            }
         }
+       
         for(int i = 0; i < n ; i++){
             cout << copy[i] <<  " ";
         }
