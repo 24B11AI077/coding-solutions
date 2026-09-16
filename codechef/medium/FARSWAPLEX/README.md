@@ -56,7 +56,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-16T15:44:34.143Z  
+**Submitted:** 2026-09-16T15:47:07.147Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -72,6 +72,17 @@ int main() {
             cin >> nums[i];
         }
         vector<int> copy = nums;
+        for(int i = 0; i < n ; i++){
+            int val = nums[i];
+            int idx = 0;
+            while(val!=copy[idx] && idx < n){
+                idx++;
+            }
+           while(idx < n-1 && abs(copy[idx]-copy[idx+1]) > 1 && copy[idx] > copy[idx+1]){
+               swap(copy[idx],copy[idx+1]);
+               idx++;
+           }
+        }
         for(int i = 0; i < n ; i++){
             int val = nums[i];
             int idx = 0;
