@@ -22,9 +22,10 @@ int main() {
         int cr = n-1, cb = 1;
         int i = n-2 , j =n-1;
         while(i >= 0 && j >= 0){
-            long long val = 1LL*cb*prefix[i] + 1LL*cr*(prefix[j]-prefix[i]);
+            long long val = 1LL*cb*prefix[i] + 1LL*cr*(prefix[n-1]-prefix[i]);
             maxi = max(maxi,val);
             i--;j--;
+            cr--;cb++;
         }
         cout << maxi << '\n';
     }
