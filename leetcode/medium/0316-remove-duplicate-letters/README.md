@@ -39,8 +39,8 @@ Output: "acdb"
 
 **Language:** C++  
 **Runtime:** 3 ms (beats 15.62%)  
-**Memory:** 9.8 MB (beats 14.48%)  
-**Submitted:** 2026-09-16T06:26:27.172Z  
+**Memory:** 10.1 MB (beats 6.52%)  
+**Submitted:** 2026-09-16T06:26:53.215Z  
 
 ```cpp
 class Solution {
@@ -52,7 +52,6 @@ public:
         }
         stack<char> st;
         unordered_map<char,bool> checker;
-        unordered_map<char,int> temp;
         for(char ch : s){
             while(!st.empty() && ch < st.top() && freq[st.top()] > 1 && !checker[ch]){
                 freq[st.top()] -= 1;
