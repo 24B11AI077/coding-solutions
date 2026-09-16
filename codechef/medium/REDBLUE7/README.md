@@ -56,7 +56,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-16T15:02:27.999Z  
+**Submitted:** 2026-09-16T15:04:49.385Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -83,9 +83,10 @@ int main() {
         int cr = n-1, cb = 1;
         int i = n-2 , j =n-1;
         while(i >= 0 && j >= 0){
-            long long val = 1LL*cb*prefix[i] + 1LL*cr*(prefix[j]-prefix[i]);
+            long long val = 1LL*cb*prefix[i] + 1LL*cr*(prefix[n-1]-prefix[i]);
             maxi = max(maxi,val);
             i--;j--;
+            cr--;cb++;
         }
         cout << maxi << '\n';
     }
