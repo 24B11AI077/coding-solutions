@@ -7,7 +7,6 @@ public:
         }
         stack<char> st;
         unordered_map<char,bool> checker;
-        unordered_map<char,int> temp;
         for(char ch : s){
             while(!st.empty() && ch < st.top() && freq[st.top()] > 1 && !checker[ch]){
                 freq[st.top()] -= 1;
