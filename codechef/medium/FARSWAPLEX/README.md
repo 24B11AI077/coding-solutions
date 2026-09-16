@@ -56,7 +56,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-16T15:47:01.146Z  
+**Submitted:** 2026-09-16T15:51:20.865Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -64,38 +64,54 @@ using namespace std;
 
 int main() {
 	// your code goes here
-    int t;cin >> t;
-    while(t--){
-        int n; cin >> n;
-        vector<int> nums(n);
-        for(int i = 0; i < n ; i++){
-            cin >> nums[i];
+   
+    int t;
+    cin >> t;
+
+    while (t--) {
+        int n;
+        cin >> n;
+
+        vector<int> p(n), pos(n + 1);
+        for (int i = 0; i < n; i++) {
+            cin >> p[i];
+            pos[p[i]] = i;
         }
-        vector<int> copy = nums;
-        for(int i = 0; i < n ; i++){
-            int val = nums[i];
-            int idx = 0;
-            while(val!=copy[idx] && idx < n){
-                idx++;
+
+        vector<vector<int>> adj(n + 1);
+        vector<int> indeg(n + 1, 0);
+
+        for (int x = 1; x < n; x++) {
+            if (pos[x] < pos[x + 1]) {
+                adj[x].push_back(x + 1);
+                indeg[x + 1]++;
+            } else {
+                adj[x + 1].push_back(x);
+                indeg[x]++;
             }
-           while(idx < n-1 && abs(copy[idx]-copy[idx+1]) > 1 && copy[idx] > copy[idx+1]){
-               swap(copy[idx],copy[idx+1]);
-               idx++;
-           }
         }
-        for(int i = 0; i < n ; i++){
-            int val = nums[i];
-            int idx = 0;
-            while(val!=copy[idx] && idx < n){
-                idx++;
+
+        priority_queue<int, vector<int>, greater<int>> pq;
+        for (int x = 1; x <= n; x++) {
+            if (indeg[x] == 0) pq.push(x);
+        }
+
+        vector<int> ans;
+        while (!pq.empty()) {
+            int u = pq.top();
+            pq.pop();
+
+            ans.push_back(u);
+
+            for (int v : adj[u]) {
+                indeg[v]--;
+                if (indeg[v] == 0) pq.push(v);
             }
-           while(idx < n-1 && abs(copy[idx]-copy[idx+1]) > 1 && copy[idx] > copy[idx+1]){
-               swap(copy[idx],copy[idx+1]);
-               idx++;
-           }
         }
-        for(int i = 0; i < n ; i++){
-            cout << copy[i] <<  " ";
+
+        for (int i = 0; i < n; i++) {
+            if (i) cout << ' ';
+            cout << ans[i];
         }
         cout << '\n';
     }
