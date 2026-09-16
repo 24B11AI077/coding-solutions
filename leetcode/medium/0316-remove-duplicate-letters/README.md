@@ -38,9 +38,9 @@ Output: "acdb"
 ## Solution
 
 **Language:** C++  
-**Runtime:** 3 ms (beats 15.62%)  
-**Memory:** 10.1 MB (beats 6.52%)  
-**Submitted:** 2026-09-16T06:26:53.215Z  
+**Runtime:** 4 ms (beats 4.85%)  
+**Memory:** 10 MB (beats 6.52%)  
+**Submitted:** 2026-09-16T09:22:01.431Z  
 
 ```cpp
 class Solution {
