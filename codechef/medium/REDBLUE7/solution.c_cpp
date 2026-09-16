@@ -15,7 +15,7 @@ int main() {
         }
         sort(nums.begin(),nums.end());
         for(int i = 0 ; i <n ; i++){
-            sum += val;
+            sum += nums[i];
             prefix[i] = sum;
         }
         long long  maxi = LLONG_MIN;
