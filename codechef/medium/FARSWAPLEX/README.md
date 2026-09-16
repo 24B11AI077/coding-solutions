@@ -56,7 +56,7 @@ Output
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-16T15:11:44.144Z  
+**Submitted:** 2026-09-16T15:19:23.143Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -64,7 +64,15 @@ using namespace std;
 
 int main() {
 	// your code goes here
-
+    int t;cin >> t;
+    while(t--){
+        int n; cin >> n;
+        vector<int> nums(n);
+        for(int i = 0; i < n ; i++){
+            cin >> nums[i];
+        }
+       
+    }
 }
 
 ```
