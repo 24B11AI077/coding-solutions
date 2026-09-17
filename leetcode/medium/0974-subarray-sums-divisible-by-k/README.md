@@ -39,9 +39,9 @@ Output: 0
 ## Solution
 
 **Language:** C++  
-**Runtime:** 11 ms (beats 53.31%)  
+**Runtime:** 12 ms (beats 42.17%)  
 **Memory:** 35.6 MB (beats 74.69%)  
-**Submitted:** 2026-09-17T05:57:41.503Z  
+**Submitted:** 2026-09-17T06:10:26.304Z  
 
 ```cpp
 class Solution {
@@ -71,6 +71,12 @@ public:
         return count;
     }
 };
+// 4 9 9 7 4 5 
+// 4,1,0,6,-1,1,-2,-4,0
+// 4 5 5 11 10 11 9 5 5
+
+ // a b c [l,y,l]
+ // a a+b a+b+c
 ```
 
 ---
