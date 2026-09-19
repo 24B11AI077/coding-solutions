@@ -47,20 +47,18 @@ Output: true
 ## Solution
 
 **Language:** C++  
-**Runtime:** 0 ms  
-**Memory:** 7.8 MB  
-**Submitted:** 2026-09-19T03:10:59.974Z  
+**Runtime:** 0 ms (beats 100.00%)  
+**Memory:** 8 MB (beats 5.00%)  
+**Submitted:** 2026-09-19T13:40:01.284Z  
 
 ```cpp
 class Solution {
 public:
-    bool checkOverlap(int radius, int xCenter, int yCenter, int x1, int y1, int x2, int y2) {
-        int left =  xCenter - radius;
-        int right = xCenter + radius;
-        int top = yCenter + radius;
-        int bottom = yCenter - radius;
-        if(x1 >= right || x2 <= left || top <= y1 || bottom >= y2 ) return false;
-        return true;
+    bool checkOverlap(int r, int cx, int cy, int x1, int y1, int x2, int y2) {
+        int x = clamp(cx, x1, x2) - cx;
+        int y = clamp(cy, y1, y2) - cy;
+
+        return x * x + y * y <= r * r;
     }
 };
 ```
