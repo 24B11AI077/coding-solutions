@@ -65,7 +65,7 @@ It contains two `0`s and two `1`s, so the entire string becomes balanced. Theref
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-21T14:08:43.277Z  
+**Submitted:** 2026-09-21T14:10:33.787Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -84,7 +84,7 @@ int main() {
             if(s[j] == '0') zeroes++;
             else ones++;
             if(abs(zeroes-ones)> 0 && (j-i+1)%2 == 0){
-                int val = (zeroes+ones)/2;
+                int val = abs(zeroes-ones)/2;
                 if(k >= val) maxi = max(maxi,j-i+1);
             }
             if(zeroes == ones) maxi = max(maxi,j-i+1);
