@@ -65,7 +65,7 @@ It contains two `0`s and two `1`s, so the entire string becomes balanced. Theref
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-21T13:51:02.842Z  
+**Submitted:** 2026-09-21T13:45:04.824Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -75,18 +75,9 @@ int main() {
 	// your code goes here
     string s; cin >> s;
     int k ; cin >> k;
-    int zeroes = 0, ones = 0;
-    for(char ch : s){
-        if(ch == '1') ones++;
-        else zeroes++;
-    }
-    if(k == 0){
-        cout << min(zeroes,ones);
-        
-    }
-    else cout << (zeroes+ones)/2;
+    
 }
-
+1000000111
 ```
 
 ---
