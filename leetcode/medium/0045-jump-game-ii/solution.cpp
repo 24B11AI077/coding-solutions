@@ -1,21 +1,8 @@
 class Solution {
 public:
     int jump(vector<int>& nums) {
-    
        int n = nums.size();
        if(n == 1) return 0;
-       vector<int> prefix(n);
-       int zeroes = 0;
-       for(int i = 0; i < n; i++){
-         if(nums[i] == 0){
-            zeroes++;
-            prefix[i] = zeroes;
-         }
-         else {
-            zeroes = 0;
-            prefix[i] = zeroes;
-         }
-       }
        int count = 1;
        int i = 0;
        while(i < n){
@@ -31,10 +18,6 @@ public:
         }
          count++;
         if(maxi >= n-1) return count;
-        if(prefix[maxi] > 0){
-            maxi -= prefix[maxi];
-        }
-       
         i  = idx;
        }
        return count;
