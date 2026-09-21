@@ -44,28 +44,15 @@ Output: 2
 
 **Language:** C++  
 **Runtime:** 0 ms (beats 100.00%)  
-**Memory:** 21.9 MB (beats 14.95%)  
-**Submitted:** 2026-09-21T05:15:38.307Z  
+**Memory:** 20.9 MB (beats 25.44%)  
+**Submitted:** 2026-09-21T05:16:58.407Z  
 
 ```cpp
 class Solution {
 public:
     int jump(vector<int>& nums) {
-    
        int n = nums.size();
        if(n == 1) return 0;
-       vector<int> prefix(n);
-       int zeroes = 0;
-       for(int i = 0; i < n; i++){
-         if(nums[i] == 0){
-            zeroes++;
-            prefix[i] = zeroes;
-         }
-         else {
-            zeroes = 0;
-            prefix[i] = zeroes;
-         }
-       }
        int count = 1;
        int i = 0;
        while(i < n){
@@ -81,10 +68,6 @@ public:
         }
          count++;
         if(maxi >= n-1) return count;
-        if(prefix[maxi] > 0){
-            maxi -= prefix[maxi];
-        }
-       
         i  = idx;
        }
        return count;
