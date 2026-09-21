@@ -11,7 +11,7 @@ int main() {
         if(s[i] == 0) zeroes++;
         else ones++;
         for(int j = i+1; j < s.size(); j++){
-            if(s[i] == 0) zeroes++;
+            if(s[j] == 0) zeroes++;
             else ones++;
             if(abs(zeroes-ones)> 0 && (j-i+1)%2 == 0){
                 int val = (zeroes+ones)/2;
