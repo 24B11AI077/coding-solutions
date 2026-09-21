@@ -91,7 +91,7 @@ $5+5=10$
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-21T14:12:44.342Z  
+**Submitted:** 2026-09-21T14:12:48.335Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
