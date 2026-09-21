@@ -14,7 +14,7 @@ int main() {
             if(s[j] == '0') zeroes++;
             else ones++;
             if(abs(zeroes-ones)> 0 && (j-i+1)%2 == 0){
-                int val = (zeroes+ones)/2;
+                int val = abs(zeroes-ones)/2;
                 if(k >= val) maxi = max(maxi,j-i+1);
             }
             if(zeroes == ones) maxi = max(maxi,j-i+1);
