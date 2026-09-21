@@ -5,5 +5,14 @@ int main() {
 	// your code goes here
     string s; cin >> s;
     int k ; cin >> k;
-    
+    int zeroes = 0, ones = 0;
+    for(char ch : s){
+        if(ch == '1') ones++;
+        else zeroes++;
+    }
+    if(k == 0){
+        cout << min(zeroes,ones);
+        
+    }
+    else cout << (zeroes+ones)/2;
 }
