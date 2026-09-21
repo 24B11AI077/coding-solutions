@@ -65,7 +65,7 @@ It contains two `0`s and two `1`s, so the entire string becomes balanced. Theref
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-21T13:39:15.985Z  
+**Submitted:** 2026-09-21T13:40:42.831Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -73,7 +73,9 @@ using namespace std;
 
 int main() {
 	// your code goes here
-
+    string s; cin >> s;
+    int k ; cin >> k;
+    
 }
 
 ```
