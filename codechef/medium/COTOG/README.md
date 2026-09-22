@@ -68,7 +68,7 @@ The seat pairs already contain couples $(3,2)$ and $(0,1)$. No swaps are needed.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-22T01:19:23.415Z  
+**Submitted:** 2026-09-22T01:22:44.406Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -93,9 +93,9 @@ int main() {
         if(mp[mini] != maxi) count++;
         i+=2;
     }
-    cout << count/2 ;
+    cout << count/2+count%2 ;
 }
-// 2 1 3  0
+//  5 0 3 1 4 2
 ```
 
 ---
