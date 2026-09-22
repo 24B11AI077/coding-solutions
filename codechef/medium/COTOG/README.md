@@ -68,34 +68,266 @@ The seat pairs already contain couples $(3,2)$ and $(0,1)$. No swaps are needed.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-22T01:22:44.406Z  
+**Submitted:** 2026-09-22T01:27:47.989Z  
 
 ```c_cpp
+/**
+ * ============================================================================
+ * Author: Nikit Singh Kanyal
+ * Course: MCA
+ * Website: https://nikit-370.github.io
+ * ============================================================================
+ */
+
+#pragma GCC optimize("O3,unroll-loops")
+// #pragma GCC target("avx2,bmi,bmi2,lzcnt,popcnt")
+
 #include <bits/stdc++.h>
 using namespace std;
 
-int main() {
-	// your code goes here
-    int n; cin >> n;
-    vector<int> nums(2*n);
-    for(int i = 0; i < 2*n ; i++) cin >> nums[i];
-    unordered_map<int,int> mp;
-    int key = 0, value = 1;
-    while(key <= 2*n-2){ // 0 1 2
-        mp[key] = value;
-        key= value+1; value+=2;
+// Type Aliases & Macros
+const long long mod = 998244353;
+using ll = long long;
+using ull = unsigned long long;
+using ld = long double;
+constexpr int INF = 1'000'000'000;
+constexpr ll INFLL = (1LL << 62);
+constexpr ll NEG_INFLL = -(1LL << 62);
+#define all(x) (x).begin(), (x).end()
+#define sz(x) ((int)(x).size())
+#define fastio ios::sync_with_stdio(false); cin.tie(nullptr);
+
+// CP Templates
+template <class T> bool chmin(T &a, const T &b) {if (b < a){a = b;return true;}return false;}
+template <class T> bool chmax(T &a, const T &b){if (a < b){a = b;return true;}return false;}
+ll mod_norm(ll x, ll m){x %= m;if (x < 0)x += m;return x;}
+ll mod_pow(ll a, ll e, ll m){ll r = 1 % m;a = mod_norm(a, m);while (e){if (e & 1)r = (ll)((__int128)r * a % m);a = (ll)((__int128)a * a % m);e >>= 1;}return r;}
+ll ext_gcd(ll a, ll b, ll &x, ll &y){if (!b){x = 1;y = 0;return a;}ll x1, y1, g = ext_gcd(b, a % b, x1, y1);x = y1;y = x1 - (a / b) * y1;return g;}
+ll mod_inv(ll a, ll m){ll x, y, g = ext_gcd(a, m, x, y);return g == 1 ? mod_norm(x, m) : -1;}
+
+vector<int> sieve(int n){vector<bool> ok(n + 1, true);vector<int> p;if (n >= 0)ok[0] = false;if (n >= 1)ok[1] = false;for (int i = 2; i <= n; ++i){if (!ok[i])continue;p.push_back(i);if ((ll)i * i <= n)for (ll j = (ll)i * i; j <= n; j += i)ok[(int)j] = false;}return p;}
+
+vector<int> smallest_prime_factor(int n){vector<int> spf(n + 1);iota(all(spf), 0);if (n >= 1)spf[1] = 1;for (int i = 2; (ll)i * i <= n; ++i)if (spf[i] == i)for (ll j = (ll)i * i; j <= n; j += i)if (spf[(int)j] == j)spf[(int)j] = i;return spf;}
+
+template <class T> vector<T> prefix_sum(const vector<T> &a){vector<T> p(sz(a) + 1);for (int i = 0; i < sz(a); ++i)p[i + 1] = p[i] + a[i];return p;}
+template <class T> T range_sum(const vector<T> &p, int l, int r){return p[r + 1] - p[l];}
+template <class T, class F> T first_true(T lo, T hi, F pred){T ans = hi + 1;while (lo <= hi){T mid = lo + (hi - lo) / 2;if (pred(mid))ans = mid, hi = mid - 1;else lo = mid + 1;}return ans;}
+
+template <class T, class F> T last_true(T lo, T hi, F pred){T ans = lo - 1;while (lo <= hi){T mid = lo + (hi - lo) / 2;if (pred(mid))ans = mid, lo = mid + 1;else hi = mid - 1;}return ans;}
+
+template <class T> struct Compressor
+{
+    vector<T> v;
+    Compressor() {}
+    Compressor(vector<T> a) {build(move(a));}
+    void build(vector<T> a){v = move(a);sort(all(v));v.erase(unique(all(v)), v.end());}
+    int get(const T &x) const{return lower_bound(all(v), x) - v.begin();}
+    int size() const{return sz(v);}
+};
+
+template <class T> vector<int> next_greater(const vector<T> &a){vector<int> ans(sz(a), -1), st;for (int i = 0; i < sz(a); ++i){while (!st.empty() && a[st.back()] < a[i])ans[st.back()] = i, st.pop_back();st.push_back(i);}return ans;}
+
+template <class T> vector<int> next_smaller(const vector<T> &a){vector<int> ans(sz(a), -1), st;for (int i = 0; i < sz(a); ++i){while (!st.empty() && a[st.back()] > a[i])ans[st.back()] = i, st.pop_back();st.push_back(i);}return ans;}
+
+template <class T> vector<int> previous_greater(const vector<T> &a){vector<int> ans(sz(a), -1), st;for (int i = 0; i < sz(a); ++i){while (!st.empty() && a[st.back()] <= a[i])st.pop_back();if (!st.empty())ans[i] = st.back();st.push_back(i);}return ans;}
+
+template <class T> vector<int> previous_smaller(const vector<T> &a){vector<int> ans(sz(a), -1), st;for (int i = 0; i < sz(a); ++i){while (!st.empty() && a[st.back()] >= a[i])st.pop_back();if (!st.empty())ans[i] = st.back();st.push_back(i);}return ans;}
+
+struct Fenwick {
+    int n;
+    vector<int> bit;
+
+    Fenwick(int n) : n(n), bit(n + 1, 0) {}
+
+    void add(int i, int v) {
+        for (; i <= n; i += i & -i) bit[i] += v;
     }
-    int count = 0;
-    int i = 0;
-    while(i < 2*n-1){
-        int mini = min(nums[i],nums[i+1]);
-        int maxi = max(nums[i],nums[i+1]);
-        if(mp[mini] != maxi) count++;
-        i+=2;
+
+    int sum(int i) {
+        int s = 0;
+        for (; i > 0; i -= i & -i) s += bit[i];
+        return s;
     }
-    cout << count/2+count%2 ;
+};
+
+
+struct DSU
+{
+    vector<int> p, s;
+    DSU(int n = 0){init(n);}
+    void init(int n){p.resize(n);s.assign(n, 1);iota(all(p), 0);}
+    int find(int x){return p[x] == x ? x : p[x] = find(p[x]);}
+    bool unite(int a, int b){a = find(a);b = find(b);if (a == b)return false;if (s[a] < s[b])swap(a, b);p[b] = a;s[a] += s[b];return true;}
+    bool same(int a, int b){return find(a) == find(b);}
+    int size(int x){return s[find(x)];}
+};
+
+// template <class T> struct Fenwick
+// {
+//     int n;
+//     vector<T> bit;
+//     Fenwick(int n = 0) : n(n), bit(n + 1) {}
+//     void init(int n_){n = n_;bit.assign(n + 1, T());}
+//     void add(int i, T x){for (++i; i <= n; i += i & -i)bit[i] += x;}
+//     T sumPrefix(int i) const{T r = T();for (++i; i; i -= i & -i)r += bit[i];return r;}
+//     T sum(int l, int r) const{if (l > r)return T();return sumPrefix(r) - (l ? sumPrefix(l - 1) : T());}
+// };
+
+template <class T, class Merge> struct SegmentTree
+{
+    int n;
+    T id;
+    Merge merge;
+    vector<T> t;
+    SegmentTree() {}
+    SegmentTree(int n_, T id_, Merge m) : id(id_), merge(m){init(n_);}
+    void init(int n_){n = 1;while (n < n_)n <<= 1;t.assign(2 * n, id);}
+    void build(const vector<T> &a){init(sz(a));for (int i = 0; i < sz(a); ++i)t[n + i] = a[i];for (int i = n - 1; i; --i)t[i] = merge(t[i << 1], t[i << 1 | 1]);}
+    void setPoint(int p, T x){p += n;t[p] = x;for (p >>= 1; p; p >>= 1)t[p] = merge(t[p << 1], t[p << 1 | 1]);}
+    T query(int l, int r) const{T a = id, b = id;for (l += n, r += n + 1; l < r; l >>= 1, r >>= 1){if (l & 1)a = merge(a, t[l++]);if (r & 1)b = merge(t[--r], b);}return merge(a, b);}
+};
+
+struct LazySegTree
+{
+    struct Node{ll sum = 0, lazy = 0;};
+    int n;
+    vector<Node> t;
+    LazySegTree(int n = 0){init(n);}
+    void init(int n_){n = n_;t.assign(4 * max(1, n), {});}
+    void build(const vector<ll> &a, int p, int l, int r){if (l == r){t[p].sum = a[l];return;}int m = (l + r) >> 1;build(a, p << 1, l, m);build(a, p << 1 | 1, m + 1, r);pull(p);}
+    void build(const vector<ll> &a){init(sz(a));if (n)build(a, 1, 0, n - 1);}
+    void pull(int p){t[p].sum = t[p << 1].sum + t[p << 1 | 1].sum;}
+    void apply(int p, int l, int r, ll x){t[p].sum += x * (r - l + 1);t[p].lazy += x;}
+    void push(int p, int l, int r){if (!t[p].lazy || l == r)return;int m = (l + r) >> 1;apply(p << 1, l, m, t[p].lazy);apply(p << 1 | 1, m + 1, r, t[p].lazy);t[p].lazy = 0;}
+    void add(int ql, int qr, ll x, int p, int l, int r){if (qr < l || r < ql)return;if (ql <= l && r <= qr){apply(p, l, r, x);return;}push(p, l, r);int m = (l + r) >> 1;add(ql, qr, x, p << 1, l, m);add(ql, qr, x, p << 1 | 1, m + 1, r);pull(p);}
+    void add(int l, int r, ll x){if (n && l <= r)add(l, r, x, 1, 0, n - 1);}
+    ll query(int ql, int qr, int p, int l, int r){if (qr < l || r < ql)return 0;if (ql <= l && r <= qr)return t[p].sum;push(p, l, r);int m = (l + r) >> 1;return query(ql, qr, p << 1, l, m) + query(ql, qr, p << 1 | 1, m + 1, r);}
+    ll query(int l, int r){return (!n || l > r) ? 0 : query(l, r, 1, 0, n - 1);}
+};
+
+struct Edge{int to;ll w;};
+using Graph = vector<vector<Edge>>;
+struct WeightedEdge{int u, v;ll w;};
+
+vector<int> bfs_dist(const vector<vector<int>> &g, int s){vector<int> d(sz(g), -1);queue<int> q;d[s] = 0;q.push(s);while (!q.empty()){int u = q.front();q.pop();for (int v : g[u])if (d[v] == -1)d[v] = d[u] + 1, q.push(v);}return d;}
+
+vector<ll> dijkstra(const Graph &g, int s){vector<ll> d(sz(g), INFLL);priority_queue<pair<ll, int>, vector<pair<ll, int>>, greater<pair<ll, int>>> pq;d[s] = 0;pq.push({0, s});while (!pq.empty()){auto [du, u] = pq.top();pq.pop();if (du != d[u])continue;for (auto [v, w] : g[u]){if (d[v] > du + w){d[v] = du + w;pq.push({d[v], v});}}}return d;}
+
+pair<vector<ll>, bool> bellman_ford(int n, const vector<WeightedEdge> &edges, int s){vector<ll> d(n, INFLL);d[s] = 0;for (int i = 0; i < n - 1; ++i){bool changed = false;for (auto [u, v, w] : edges){if (d[u] == INFLL)continue;if (d[v] > d[u] + w)d[v] = d[u] + w, changed = true;}if (!changed)break;}bool neg = false;for (auto [u, v, w] : edges)if (d[u] != INFLL && d[v] > d[u] + w){neg = true;break;}return {d, neg};}
+
+vector<int> topo_sort(const vector<vector<int>> &g){vector<int> deg(sz(g));for (auto &e : g)for (int v : e)++deg[v];queue<int> q;for (int i = 0; i < sz(g); ++i)if (!deg[i])q.push(i);vector<int> order;while (!q.empty()){int u = q.front();q.pop();order.push_back(u);for (int v : g[u])if (--deg[v] == 0)q.push(v);}return sz(order) == sz(g) ? order : vector<int>();}
+
+struct LCA
+{
+    int n, LOG;
+    vector<int> depth;
+    vector<vector<int>> up;
+    LCA(const vector<vector<int>> &g, int root = 0){n = sz(g);LOG = 1;while ((1 << LOG) <= n)++LOG;depth.assign(n, 0);up.assign(LOG, vector<int>(n, root));vector<int> st = {root};for (int i = 0; i < sz(st); ++i){int u = st[i];for (int v : g[u]){if (v == up[0][u])continue;up[0][v] = u;depth[v] = depth[u] + 1;st.push_back(v);}}for (int j = 1; j < LOG; ++j)for (int v = 0; v < n; ++v)up[j][v] = up[j - 1][up[j - 1][v]];}
+    int jump(int u, int k) const{for (int j = 0; j < LOG; ++j)if (k >> j & 1)u = up[j][u];return u;}
+    int lca(int a, int b) const{if (depth[a] < depth[b])swap(a, b);a = jump(a, depth[a] - depth[b]);if (a == b)return a;for (int j = LOG - 1; j >= 0; --j)if (up[j][a] != up[j][b])a = up[j][a], b = up[j][b];return up[0][a];}
+    int distance(int a, int b) const{int c = lca(a, b);return depth[a] + depth[b] - 2 * depth[c];}
+};
+
+vector<int> prefix_function(const string &s){vector<int> pi(sz(s));for (int i = 1; i < sz(s); ++i){int j = pi[i - 1];while (j && s[i] != s[j])j = pi[j - 1];if (s[i] == s[j])++j;pi[i] = j;}return pi;}
+
+vector<int> kmp_find(const string &text, const string &pat){if (pat.empty())return {};vector<int> pi = prefix_function(pat), ans;for (int i = 0, j = 0; i < sz(text); ++i){while (j && text[i] != pat[j])j = pi[j - 1];if (text[i] == pat[j])++j;if (j == sz(pat)){ans.push_back(i - sz(pat) + 1);j = pi[j - 1];}}return ans;}
+
+vector<int> z_function(const string &s){vector<int> z(sz(s));for (int i = 1, l = 0, r = 0; i < sz(s); ++i){if (i <= r)z[i] = min(r - i + 1, z[i - l]);while (i + z[i] < sz(s) && s[z[i]] == s[i + z[i]])++z[i];if (i + z[i] - 1 > r)l = i, r = i + z[i] - 1;}if (!s.empty())z[0] = sz(s);return z;}
+
+struct Trie
+{
+    struct Node{array<int, 26> nxt;int cnt = 0;Node(){nxt.fill(-1);}};
+    vector<Node> t;
+    Trie() : t(1) {}
+    void insert(const string &s){int u = 0;for (char c : s){int x = c - 'a';if (t[u].nxt[x] == -1){t[u].nxt[x] = sz(t);t.emplace_back();}u = t[u].nxt[x];++t[u].cnt;}}
+    int count_prefix(const string &s) const{int u = 0;for (char c : s){int x = c - 'a';if (t[u].nxt[x] == -1)return 0;u = t[u].nxt[x];}return t[u].cnt;}
+};
+
+struct Comb
+{
+    int n;
+    ll mod;
+    vector<ll> fact, ifact;
+    Comb(int n_, ll mod_) : n(n_), mod(mod_), fact(n + 1), ifact(n + 1){fact[0] = 1 % mod;for (int i = 1; i <= n; ++i)fact[i] = (ll)((__int128)fact[i - 1] * i % mod);ifact[n] = mod_pow(fact[n], mod - 2, mod);for (int i = n; i; --i)ifact[i - 1] = (ll)((__int128)ifact[i] * i % mod);}
+    ll C(int N, int K) const{if (K < 0 || K > N)return 0;return (ll)((__int128)fact[N] * ifact[K] % mod * ifact[N - K] % mod);}
+    ll P(int N, int K) const{if (K < 0 || K > N)return 0;return (ll)((__int128)fact[N] * ifact[N - K] % mod);}
+};
+
+template <class T> vector<T> sliding_min(const vector<T> &a, int k){deque<int> q;vector<T> ans;for (int i = 0; i < sz(a); ++i){while (!q.empty() && q.front() <= i - k)q.pop_front();while (!q.empty() && a[q.back()] >= a[i])q.pop_back();q.push_back(i);if (i >= k - 1)ans.push_back(a[q.front()]);}return ans;}
+
+struct CHT
+{
+    struct Line{ll m, b;ll get(ll x) const{return (ll)((__int128)m * x + b);}};
+    deque<Line> q;
+    bool bad(Line a, Line b, Line c){return (__int128)(b.b - a.b) * (b.m - c.m) >= (__int128)(c.b - b.b) * (a.m - b.m);}
+    void add(ll m, ll b){Line x{m, b};while (sz(q) >= 2 && bad(q[sz(q) - 2], q.back(), x))q.pop_back();q.push_back(x);}
+    ll query(ll x){while (sz(q) >= 2 && q[0].get(x) >= q[1].get(x))q.pop_front();return q.front().get(x);}
+};
+
+struct Point
+{
+    ld x = 0, y = 0;
+    Point() {}
+    Point(ld x_, ld y_) : x(x_), y(y_) {}
+    Point operator+(Point p) const{return {x + p.x, y + p.y};}
+    Point operator-(Point p) const{return {x - p.x, y - p.y};}
+    Point operator*(ld k) const{return {x * k, y * k};}
+};
+
+ld dot(Point a, Point b){return a.x * b.x + a.y * b.y;}
+ld cross(Point a, Point b){return a.x * b.y - a.y * b.x;}
+ld orientation(Point a, Point b, Point c){return cross(b - a, c - a);}
+ld dist(Point a, Point b){return sqrtl(dot(a - b, a - b));}
+
+bool on_segment(Point p, Point a, Point b){if (fabsl(orientation(a, b, p)) > 1e-12L)return false;return p.x >= min(a.x, b.x) - 1e-12L && p.x <= max(a.x, b.x) + 1e-12L && p.y >= min(a.y, b.y) - 1e-12L && p.y <= max(a.y, b.y) + 1e-12L;}
+
+bool segments_intersect(Point a, Point b, Point c, Point d){ld x1 = orientation(a, b, c), x2 = orientation(a, b, d);ld x3 = orientation(c, d, a), x4 = orientation(c, d, b);if (((x1 > 0 && x2 < 0) || (x1 < 0 && x2 > 0)) && ((x3 > 0 && x4 < 0) || (x3 < 0 && x4 > 0)))return true;return (fabsl(x1) < 1e-12L && on_segment(c, a, b)) || (fabsl(x2) < 1e-12L && on_segment(d, a, b)) || (fabsl(x3) < 1e-12L && on_segment(a, c, d)) || (fabsl(x4) < 1e-12L && on_segment(b, c, d));}
+
+ld polygon_area(const vector<Point> &p){if (p.empty())return 0;ld s = 0;for (int i = 0; i < sz(p); ++i)s += cross(p[i], p[(i + 1) % sz(p)]);return fabsl(s) / 2;}
+
+struct CustomHash
+{
+    static uint64_t splitmix64(uint64_t x){x += 0x9e3779b97f4a7c15ULL;x = (x ^ (x >> 30)) * 0xbf58476d1ce4e5b9ULL;x = (x ^ (x >> 27)) * 0x94d049bb133111ebULL;return x ^ (x >> 31);}
+    size_t operator()(uint64_t x) const{static const uint64_t seed = chrono::steady_clock::now().time_since_epoch().count();return splitmix64(x + seed);}
+};
+
+struct PairHash
+{
+    template <class A, class B> size_t operator()(const pair<A, B> &p) const{uint64_t x = CustomHash::splitmix64((uint64_t)p.first);uint64_t y = CustomHash::splitmix64((uint64_t)p.second);return x ^ (y + 0x9e3779b97f4a7c15ULL + (x << 6) + (x >> 2));}
+};
+
+using Matrix = vector<vector<ll>>;
+Matrix mat_mul(const Matrix &A, const Matrix &B, ll mod){int n = sz(A), m = sz(B), p = sz(B[0]);Matrix C(n, vector<ll>(p));for (int i = 0; i < n; ++i)for (int k = 0; k < m; ++k){if (!A[i][k])continue;for (int j = 0; j < p; ++j)C[i][j] = (C[i][j] + (ll)((__int128)A[i][k] * B[k][j] % mod)) % mod;}return C;}
+
+Matrix mat_pow(Matrix a, ll e, ll mod){int n = sz(a);Matrix r(n, vector<ll>(n));for (int i = 0; i < n; ++i)r[i][i] = 1 % mod;while (e){if (e & 1)r = mat_mul(r, a, mod);a = mat_mul(a, a, mod);e >>= 1;}return r;}
+
+void nsk() {
+    int n;
+    cin >> n;
+
+    vector<int> a(2 * n);
+    for (auto &x : a) cin >> x;
+
+    int ans = 0;
+
+    for (int i = 0; i < 2 * n; i += 2) {
+        if (a[i] / 2 == a[i + 1] / 2) continue;
+
+        int j = i + 1;
+        while (a[j] / 2 != a[i] / 2) j++;
+
+        swap(a[i + 1], a[j]);
+        ans++;
+    }
+
+    cout << ans << '\n';
 }
-//  5 0 3 1 4 2
+
+
+int main() {fastio;
+    nsk();
+    return 0;
+}
 ```
 
 ---
