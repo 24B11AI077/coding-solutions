@@ -77,7 +77,7 @@ Thus, it's impossible to make the array  *good*  after a single deletion.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-23T15:28:20.546Z  
+**Submitted:** 2026-09-23T15:36:58.546Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
