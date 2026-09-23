@@ -21,7 +21,7 @@ int main() {
                 
             }
         }
-        if(res == INT_MIN) cout << -1 << '\n';
+        if(res == INT_MAX) cout << -1 << '\n';
         else cout << res << '\n';
     }
 }
