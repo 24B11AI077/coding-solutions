@@ -77,7 +77,7 @@ Thus, it's impossible to make the array  *good*  after a single deletion.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-23T15:26:59.975Z  
+**Submitted:** 2026-09-23T15:28:12.546Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -93,7 +93,7 @@ int main() {
             cin >> nums[i];
         }
         string res = "YES";
-        int sum = 0;
+        long long sum = 0;
         bool updated = true;
         for(int i = 0; i < n ; i++){
             sum += nums[i];
