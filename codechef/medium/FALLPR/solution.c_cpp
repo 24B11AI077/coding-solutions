@@ -20,8 +20,8 @@ int main() {
                 break;
             }
             else if(sum < 0 && updated){
-                sum -= nums[i];
-                updated =true;
+                sum +=  -1*nums[i];
+                updated =false;
             }
         }
         cout << res << '\n';
