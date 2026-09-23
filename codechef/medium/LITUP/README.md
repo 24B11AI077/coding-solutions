@@ -76,7 +76,7 @@ $5$ is the minimum cost needed to achieve this.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-23T14:56:55.583Z  
+**Submitted:** 2026-09-23T14:57:34.559Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -84,7 +84,14 @@ using namespace std;
 
 int main() {
 	// your code goes here
-
+    int t; cin >> t;
+    while(t--){
+        int n,k; cin >> n >> k;
+        vector<int> nums(n);
+        for(int i = 0; i < n ; i++){
+            cin >> nums[i];
+        }
+    }
 }
 
 ```
