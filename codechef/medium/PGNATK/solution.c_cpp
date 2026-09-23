@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+    int t; cin >> t;
+    while(t--){
+        int n ,k; cin >> n >> k ;
+        int count = 0;
+        int i = 1;
+        int val = k;
+        while(i <= n){
+            if(i == val){
+                count++; val += k;
+                n = n+1;
+            }
+            else {
+                count++;
+            }
+            i++;
+        }
+        cout << count << '\n';
+    }
+}
