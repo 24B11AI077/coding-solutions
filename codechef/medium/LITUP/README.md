@@ -76,7 +76,7 @@ $5$ is the minimum cost needed to achieve this.
 **Language:** c_cpp  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-23T15:16:42.994Z  
+**Submitted:** 2026-09-23T15:19:14.665Z  
 
 ```c_cpp
 #include <bits/stdc++.h>
@@ -96,7 +96,7 @@ int main() {
             for(int j =i+1; j < n ; j++){
                 int mini = min(i-k,j-k);
                 int maxi = max(i+k,j+k);
-                if(mini <= 0 && maxi >= n-1 && (i+k) >= (j-k)){
+                if(mini <= 0 && maxi >= n-1 && (i+k+1) >= (j-k)){
                     res = min(res,nums[i]+nums[j]);
                 }
                 
